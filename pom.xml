@@ -9,6 +9,7 @@
 
     <modules>
         <module>BootableJPA</module>
+        <module>BootableMVC</module>
     </modules>
 
     <packaging>pom</packaging>
