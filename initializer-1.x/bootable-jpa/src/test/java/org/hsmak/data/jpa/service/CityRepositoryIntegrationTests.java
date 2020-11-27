@@ -25,9 +25,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import static org.hamcrest.Matchers.greaterThan;
-import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
+
+//import static org.hamcrest.Matchers.greaterThan;
+//import static org.hamcrest.Matchers.is;
+//import static org.junit.Assert.assertThat;
 
 /**
  * Integration tests for {@link CityRepository}.
@@ -45,6 +47,6 @@ public class CityRepositoryIntegrationTests {
 	public void findsFirstPageOfCities() {
 
 		Page<City> cities = this.repository.findAll(new PageRequest(0, 10));
-		assertThat(cities.getTotalElements(), is(greaterThan(20L)));
+		assertThat(cities.getTotalElements()).isGreaterThan(20L);
 	}
 }
