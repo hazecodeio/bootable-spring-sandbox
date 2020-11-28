@@ -15,6 +15,8 @@
         <version>2.4.0</version>
     </parent>
 
+    <name>${project.artifactId}</name>
+
     <modules>
         <module>bootable-2-jpa</module>
         <module>bootable-2-mvc</module>
@@ -25,6 +27,7 @@
         <!--common-->
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
+        <java.version>11</java.version>
         <encoding>UTF-8</encoding>
 
         <!--java-based-->
@@ -61,6 +64,7 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
     </dependencies>
 
     <build>
