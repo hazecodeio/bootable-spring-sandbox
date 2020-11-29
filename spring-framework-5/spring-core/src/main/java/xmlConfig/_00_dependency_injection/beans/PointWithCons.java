@@ -1,4 +1,4 @@
-package xmlConfig._00_DI.beans;
+package xmlConfig._00_dependency_injection.beans;
 
 public class PointWithCons {
     private int x;

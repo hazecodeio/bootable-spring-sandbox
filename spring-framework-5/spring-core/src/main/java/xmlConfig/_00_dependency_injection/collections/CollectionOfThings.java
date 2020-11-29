@@ -1,4 +1,4 @@
-package xmlConfig._00_DI.collections;
+package xmlConfig._00_dependency_injection.collections;
 
 import java.util.List;
 

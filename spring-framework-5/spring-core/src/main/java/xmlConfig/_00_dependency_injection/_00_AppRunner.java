@@ -1,14 +1,14 @@
-package xmlConfig._00_DI;
+package xmlConfig._00_dependency_injection;
 
-import xmlConfig._00_DI.autowiring.Customer;
-import xmlConfig._00_DI.collections.CollectionOfThings;
-import xmlConfig._00_DI.beans.Point;
+import xmlConfig._00_dependency_injection.autowiring.Customer;
+import xmlConfig._00_dependency_injection.collections.CollectionOfThings;
+import xmlConfig._00_dependency_injection.beans.Point;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import xmlConfig._00_DI.beans.PointWithCons;
+import xmlConfig._00_dependency_injection.beans.PointWithCons;
 
 
-public class AppRunner {
+public class _00_AppRunner {
     public static void main(String[] args) {
         injectBeans();
         injectCollections();
@@ -16,15 +16,22 @@ public class AppRunner {
     }
 
     private static void injectWithAutowiring() {
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("xmlConfig/_00_DI/di-autowiring-ctx.xml");
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("xmlConfig/_00_dependency_injection/di-autowiring-ctx.xml");
 
-        Customer customer = applicationContext.getBean("customer", Customer.class);
-        System.out.println(customer.getPerson());
+        Customer customerAutowiredByName = applicationContext.getBean("customerAutowiredByType", Customer.class);
+        System.out.println(customerAutowiredByName.getPerson());
         System.out.println();
+
+        System.out.println("--------------------------------------------");
+
+        Customer customerAutowiredByType = applicationContext.getBean("customerAutowiredByType", Customer.class);
+        System.out.println(customerAutowiredByType.getPerson());
+        System.out.println();
+
     }
 
     private static void injectCollections() {
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("xmlConfig/_00_DI/di-collection-ctx.xml");
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("xmlConfig/_00_dependency_injection/di-collection-ctx.xml");
 
         CollectionOfThings collectionOfThings = applicationContext.getBean("collectionOfThings", CollectionOfThings.class);
         collectionOfThings.getNames().forEach(System.out::println);
@@ -36,7 +43,7 @@ public class AppRunner {
     }
 
     private static void injectBeans() {
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("xmlConfig/_00_DI/di-bean-ctx.xml"); // Alternatively ("classpath:**/di-bean-ctx.xml")
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("xmlConfig/_00_dependency_injection/di-bean-ctx.xml"); // Alternatively ("classpath:**/di-bean-ctx.xml")
 
         System.out.println("--------------------------");
         Point point10 = (Point) applicationContext.getBean("point10");

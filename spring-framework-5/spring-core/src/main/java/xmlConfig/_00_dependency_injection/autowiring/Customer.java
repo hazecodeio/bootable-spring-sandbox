@@ -1,6 +1,4 @@
-package xmlConfig._00_DI.autowiring;
-
-import java.util.StringJoiner;
+package xmlConfig._00_dependency_injection.autowiring;
 
 public class Customer {
 

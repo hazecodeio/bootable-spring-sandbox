@@ -1,4 +1,4 @@
-package xmlConfig._00_DI.autowiring;
+package xmlConfig._00_dependency_injection.autowiring;
 
 public class Person {
     String firstName;
