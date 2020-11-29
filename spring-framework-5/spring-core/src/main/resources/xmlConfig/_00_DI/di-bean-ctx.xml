@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="point10" class="xmlConfig._00_DI.beans.Point">
+        <property name="x" value="10"/>
+        <property name="y" value="10"/>
+    </bean>
+
+    <bean id="pointWithCons" class="xmlConfig._00_DI.beans.PointWithCons">
+        <constructor-arg name="x" value="12"/>
+        <constructor-arg name="y" value="13"/>
+    </bean>
+    <bean id="pointWithConsWithType" class="xmlConfig._00_DI.beans.PointWithCons">
+        <constructor-arg type="int" name="x" value="12"/>
+        <constructor-arg type="int" name="y" value="13"/>
+    </bean>
+    <bean id="pointWithConsWithTypeAndIndex" class="xmlConfig._00_DI.beans.PointWithCons">
+        <constructor-arg index="0" type="int" name="x" value="12"/>
+        <constructor-arg index="1" type="int" name="y" value="13"/>
+    </bean>
+    <bean id="pointWithCoordinatesObj" class="xmlConfig._00_DI.beans.PointWithCons">
+        <constructor-arg name="coordinates">
+            <bean id="coordinatesAsInnerBean" class="xmlConfig._00_DI.beans.Coordinates">
+                <property name="x" value="44"/>
+                <property name="y" value="55"/>
+            </bean>
+        </constructor-arg>
+    </bean>
+    <bean id="pointWithCoordinatesRef" class="xmlConfig._00_DI.beans.PointWithCons">
+        <constructor-arg ref="coordinatesAsOuterBean"/>
+    </bean>
+    <bean id="coordinatesAsOuterBean" class="xmlConfig._00_DI.beans.Coordinates">
+        <property name="x" value="440"/>
+        <property name="y" value="550"/>
+    </bean>
+
+    <!-- ################################################################################### -->
+
+    <bean id="point10ViaPNamespace" class="xmlConfig._00_DI.beans.Point"
+          p:x="10"
+          p:y="10"/>
+</beans>
