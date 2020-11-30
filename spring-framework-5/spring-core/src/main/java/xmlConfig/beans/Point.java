@@ -1,4 +1,4 @@
-package xmlConfig._00_dependency_injection.beans;
+package xmlConfig.beans;
 
 public class Point {
     private int x;

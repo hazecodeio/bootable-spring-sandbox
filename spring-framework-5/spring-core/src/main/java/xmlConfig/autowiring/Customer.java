@@ -1,4 +1,4 @@
-package xmlConfig._00_dependency_injection.autowiring;
+package xmlConfig.autowiring;
 
 public class Customer {
 

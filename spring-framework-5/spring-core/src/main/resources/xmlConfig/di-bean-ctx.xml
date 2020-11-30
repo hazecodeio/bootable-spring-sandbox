@@ -3,42 +3,42 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="point10" class="xmlConfig._00_dependency_injection.beans.Point">
+    <bean id="point10" class="xmlConfig.beans.Point">
         <property name="x" value="10"/>
         <property name="y" value="10"/>
     </bean>
 
-    <bean id="pointWithCons" class="xmlConfig._00_dependency_injection.beans.PointWithCons">
+    <bean id="pointWithCons" class="xmlConfig.beans.PointWithCons">
         <constructor-arg name="x" value="12"/>
         <constructor-arg name="y" value="13"/>
     </bean>
-    <bean id="pointWithConsWithType" class="xmlConfig._00_dependency_injection.beans.PointWithCons">
+    <bean id="pointWithConsWithType" class="xmlConfig.beans.PointWithCons">
         <constructor-arg type="int" name="x" value="12"/>
         <constructor-arg type="int" name="y" value="13"/>
     </bean>
-    <bean id="pointWithConsWithTypeAndIndex" class="xmlConfig._00_dependency_injection.beans.PointWithCons">
+    <bean id="pointWithConsWithTypeAndIndex" class="xmlConfig.beans.PointWithCons">
         <constructor-arg index="0" type="int" name="x" value="12"/>
         <constructor-arg index="1" type="int" name="y" value="13"/>
     </bean>
-    <bean id="pointWithCoordinatesObj" class="xmlConfig._00_dependency_injection.beans.PointWithCons">
+    <bean id="pointWithCoordinatesObj" class="xmlConfig.beans.PointWithCons">
         <constructor-arg name="coordinates">
-            <bean id="coordinatesAsInnerBean" class="xmlConfig._00_dependency_injection.beans.Coordinates">
+            <bean id="coordinatesAsInnerBean" class="xmlConfig.beans.Coordinates">
                 <property name="x" value="44"/>
                 <property name="y" value="55"/>
             </bean>
         </constructor-arg>
     </bean>
-    <bean id="pointWithCoordinatesRef" class="xmlConfig._00_dependency_injection.beans.PointWithCons">
+    <bean id="pointWithCoordinatesRef" class="xmlConfig.beans.PointWithCons">
         <constructor-arg ref="coordinatesAsOuterBean"/>
     </bean>
-    <bean id="coordinatesAsOuterBean" class="xmlConfig._00_dependency_injection.beans.Coordinates">
+    <bean id="coordinatesAsOuterBean" class="xmlConfig.beans.Coordinates">
         <property name="x" value="440"/>
         <property name="y" value="550"/>
     </bean>
 
     <!-- ################################################################################### -->
 
-    <bean id="point10ViaPNamespace" class="xmlConfig._00_dependency_injection.beans.Point"
+    <bean id="point10ViaPNamespace" class="xmlConfig.beans.Point"
           p:x="10"
           p:y="10"/>
 </beans>
