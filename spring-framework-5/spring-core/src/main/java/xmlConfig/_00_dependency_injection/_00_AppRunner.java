@@ -28,6 +28,12 @@ public class _00_AppRunner {
         System.out.println(customerAutowiredByType.getPerson());
         System.out.println();
 
+        System.out.println("--------------------------------------------");
+
+        Customer customerAutowiredByCons = applicationContext.getBean("customerAutowiredByCons", Customer.class);
+        System.out.println(customerAutowiredByCons.getPerson());
+        System.out.println();
+
     }
 
     private static void injectCollections() {

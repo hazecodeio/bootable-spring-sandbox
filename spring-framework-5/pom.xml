@@ -10,6 +10,7 @@
 
     <modules>
         <module>spring-core</module>
+        <module>spring-mvc</module>
     </modules>
 
     <name>${project.artifactId}</name>
@@ -67,33 +68,6 @@
             <version>${junit5.version}</version>
             <scope>test</scope>
         </dependency>
-
-
-        <!--logging-->
-        <!--<dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>${slf4j.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>jcl-over-slf4j</artifactId>
-            <version>${slf4j.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>${slf4j.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.15</version>
-            <scope>runtime</scope>
-        </dependency>-->
-
 
     </dependencies>
 
