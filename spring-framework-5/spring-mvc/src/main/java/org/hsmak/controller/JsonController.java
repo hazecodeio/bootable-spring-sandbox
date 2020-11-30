@@ -12,9 +12,10 @@ public class JsonController {
             value = "/json",
             produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody // Make sure Jackson jars are on the classpath
-    public PersonWrapper get() {
+    public PersonWrapper getJson() {
         return new PersonWrapper();
     }
+
 }
 
 class PersonWrapper {

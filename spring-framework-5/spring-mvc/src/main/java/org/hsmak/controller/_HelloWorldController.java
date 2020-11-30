@@ -13,13 +13,13 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.Map;
 
 @Controller
-public class HelloWorldController {
+public class _HelloWorldController {
 
-    private final Logger logger = LogManager.getLogger(HelloWorldController.class);
+    private final Logger logger = LogManager.getLogger(_HelloWorldController.class);
     private final HelloWorldService helloWorldService;
 
     @Autowired
-    public HelloWorldController(HelloWorldService helloWorldService) {
+    public _HelloWorldController(HelloWorldService helloWorldService) {
         this.helloWorldService = helloWorldService;
     }
 
