@@ -29,13 +29,13 @@
         <spring.version>5.3.1</spring.version>
         <spring.ws.version></spring.ws.version>
         <spring.integration.version></spring.integration.version>
-        <hibernate.version>5.4.24.Final</hibernate.version>
 
         <!--web-related-->
         <jstl.version>1.2</jstl.version>
         <taglibs.version>1.1.2</taglibs.version>
 
         <!--db-related-->
+        <hibernate.version>5.4.24.Final</hibernate.version>
 
         <!--format-related-->
         <jackson.version>2.12.0</jackson.version>
