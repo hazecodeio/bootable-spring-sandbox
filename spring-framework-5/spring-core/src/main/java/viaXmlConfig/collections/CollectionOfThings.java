@@ -1,4 +1,4 @@
-package xmlConfig.collections;
+package viaXmlConfig.collections;
 
 import java.util.List;
 

@@ -7,7 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-@Controller // Enabled by by <mvc:annotation-driven>
+@Controller
 public class _TestController {
 
     private static final Logger logger = LogManager.getLogger(_TestController.class);

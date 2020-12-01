@@ -16,29 +16,29 @@ public class JsonController {
         return new PersonWrapper();
     }
 
-}
 
-class PersonWrapper {
+    static class Person {
+        String name = "Kamala";
 
-    Person person = new Person();
+        public String getName() {
+            return name;
+        }
 
-    public Person getPerson() {
-        return person;
+        public void setName(String name) {
+            this.name = name;
+        }
     }
 
-    public void setPerson(Person person) {
-        this.person = person;
-    }
-}
+    static class PersonWrapper {
 
-class Person {
-    String name = "Kamala";
+        Person person = new Person();
 
-    public String getName() {
-        return name;
-    }
+        public Person getPerson() {
+            return person;
+        }
 
-    public void setName(String name) {
-        this.name = name;
+        public void setPerson(Person person) {
+            this.person = person;
+        }
     }
 }

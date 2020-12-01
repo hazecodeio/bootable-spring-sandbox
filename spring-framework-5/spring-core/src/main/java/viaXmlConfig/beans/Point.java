@@ -1,4 +1,4 @@
-package xmlConfig.beans;
+package viaXmlConfig.beans;
 
 public class Point {
     private int x;

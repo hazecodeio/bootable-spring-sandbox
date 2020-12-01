@@ -1,4 +1,4 @@
-package xmlConfig.autowiring;
+package viaXmlConfig.autowiring;
 
 public class Person {
     String firstName;

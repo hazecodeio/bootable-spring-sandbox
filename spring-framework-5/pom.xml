@@ -11,6 +11,7 @@
     <modules>
         <module>spring-core</module>
         <module>spring-mvc</module>
+        <module>spring-rest</module>
     </modules>
 
     <name>${project.artifactId}</name>
@@ -18,26 +19,38 @@
     <packaging>pom</packaging>
 
     <properties>
-        <!--common-->
+        <!--java-related-->
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <java.version>11</java.version>
         <encoding>UTF-8</encoding>
 
-        <!--spring-based-->
+        <!--spring-related-->
         <spring.version>5.3.1</spring.version>
         <spring.ws.version></spring.ws.version>
         <spring.integration.version></spring.integration.version>
         <hibernate.version>5.4.24.Final</hibernate.version>
 
-        <!--test-->
+        <!--web-related-->
+        <jstl.version>1.2</jstl.version>
+        <taglibs.version>1.1.2</taglibs.version>
+
+        <!--db-related-->
+
+        <!--format-related-->
+        <jackson.version>2.12.0</jackson.version>
+
+        <!--log-related-->
+        <log4j.version>2.14.0</log4j.version>
+
+        <!--test-related-->
         <junit4.version>4.13.1</junit4.version>
         <junit5.version>5.6.3</junit5.version>
     </properties>
 
     <dependencies>
 
-        <!-- spring -->
+        <!--spring-related-->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
@@ -55,7 +68,7 @@
             <scope>test</scope>
         </dependency>
 
-        <!--test-->
+        <!--test-related-->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -70,5 +83,73 @@
         </dependency>
 
     </dependencies>
+
+    <dependencyManagement>
+
+        <dependencies>
+            <!-- spring-related -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-webmvc</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
+            <!-- format-related -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <!--xml-->
+            <dependency>
+                <groupId>com.fasterxml.jackson.dataformat</groupId>
+                <artifactId>jackson-dataformat-xml</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <!--yaml-->
+            <dependency>
+                <groupId>com.fasterxml.jackson.dataformat</groupId>
+                <artifactId>jackson-dataformat-yaml</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+
+            <!-- web-related -->
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>jstl</artifactId>
+                <version>${jstl.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>taglibs</groupId>
+                <artifactId>standard</artifactId>
+                <version>${taglibs.version}</version>
+            </dependency>
+
+
+            <!-- logging -->
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-api</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-core</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+
+        </dependencies>
+
+    </dependencyManagement>
 
 </project>
