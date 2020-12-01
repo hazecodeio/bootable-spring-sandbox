@@ -1,12 +1,12 @@
 package org.hsmak.controller;
 
 import org.springframework.http.MediaType;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
-public class XMLController {
+@RestController
+public class RestXMLController {
     @RequestMapping(
             value = "/xml",
             produces = MediaType.APPLICATION_XML_VALUE)

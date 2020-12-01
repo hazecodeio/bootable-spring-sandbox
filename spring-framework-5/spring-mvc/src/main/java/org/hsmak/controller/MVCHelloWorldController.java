@@ -13,29 +13,29 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.Map;
 
 @Controller
-public class _HelloWorldController {
+public class MVCHelloWorldController {
 
-    private final Logger logger = LogManager.getLogger(_HelloWorldController.class);
+    private final Logger logger = LogManager.getLogger(MVCHelloWorldController.class);
     private final HelloWorldService helloWorldService;
 
     @Autowired
-    public _HelloWorldController(HelloWorldService helloWorldService) {
+    public MVCHelloWorldController(HelloWorldService helloWorldService) {
         this.helloWorldService = helloWorldService;
     }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String index(Map<String, Object> model) {
+    public String requestWithMapReturningViewsName(Map<String, Object> model) {
 
         logger.debug("index() is executed!");
 
         model.put("title", helloWorldService.getTitle(""));
         model.put("msg", helloWorldService.getDescription());
 
-        return "index";
+        return "index"; // MVC Controller will always return the View's name or ModelAndView which ha the view's name
     }
 
     @RequestMapping(value = "/hello/{name:.+}", method = RequestMethod.GET)
-    public ModelAndView hello(@PathVariable("name") String name) {
+    public ModelAndView requestReturningModelAndView(@PathVariable("name") String name) {
 
         logger.debug("hello() is executed - $name {}", name);
 
@@ -45,8 +45,6 @@ public class _HelloWorldController {
         model.addObject("title", helloWorldService.getTitle(name));
         model.addObject("msg", helloWorldService.getDescription());
 
-        return model;
-
+        return model; // MVC Controller will always return the View's name or ModelAndView which ha the view's name
     }
-
 }

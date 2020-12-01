@@ -1,17 +1,16 @@
 package org.hsmak.controller;
 
 import org.springframework.http.MediaType;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
-public class JsonController {
+@RestController
+public class RestJsonController {
 
     @RequestMapping(
             value = "/json",
             produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseBody // Make sure Jackson jars are on the classpath
     public PersonWrapper getJson() {
         return new PersonWrapper();
     }

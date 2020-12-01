@@ -8,7 +8,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
-    <context:component-scan base-package="org.hsmak"/>
+    <context:component-scan base-package="org.hsmak, org.hsmak.controller"/>
     <context:annotation-config/>
 
     <!--
@@ -16,10 +16,10 @@
                     - YamlHttpMessageConverter failed to render response when this was enabled?
                     - @Controller works just fine with <context:component-scan/> and <context:annotation-config/>?
     -->
-    <mvc:annotation-driven/>
+    <!--<mvc:annotation-driven/>-->
 
     <!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
-    <mvc:resources mapping="/resources/**" location="/resources/"/>
+    <!--<mvc:resources mapping="/resources/**" location="/resources/"/>-->
 
 
     <!-- Imports user-defined @Controller beans that process client requests -->

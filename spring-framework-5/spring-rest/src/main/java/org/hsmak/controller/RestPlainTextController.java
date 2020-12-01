@@ -1,17 +1,13 @@
 package org.hsmak.controller;
 
 import org.springframework.http.MediaType;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
-public class PlainTextController {
+@RestController
+public class RestPlainTextController {
 
     @RequestMapping(
-            value = "/text",
+            value = "/",
             produces = MediaType.TEXT_PLAIN_VALUE)
     @ResponseBody // Make sure Jackson jars are on the classpath
     public String getText(@RequestParam(required = false) String id) {

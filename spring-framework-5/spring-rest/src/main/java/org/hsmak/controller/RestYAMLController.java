@@ -14,7 +14,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 import java.util.List;
 
 @Controller
-public class YAMLController {
+public class RestYAMLController {
     @RequestMapping(
             value = "/yaml",
             produces = "text/yaml")

@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class _TestController {
+public class MVCTestController {
 
-    private static final Logger logger = LogManager.getLogger(_TestController.class);
+    private static final Logger logger = LogManager.getLogger(MVCTestController.class);
 
     /**
      * Selects the home page and populates the model with a message
@@ -20,7 +20,7 @@ public class _TestController {
         logger.info("Welcome home!");
         model.addAttribute("controllerMessage",
                 "This is the message from the controller!");
+
         return "test";
     }
-
 }
