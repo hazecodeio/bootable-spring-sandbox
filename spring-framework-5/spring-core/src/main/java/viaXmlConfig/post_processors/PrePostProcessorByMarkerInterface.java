@@ -10,7 +10,7 @@ public class PrePostProcessorByMarkerInterface implements BeanPostProcessor {
     @Override // overriding a default method in the interface
     public Object postProcessBeforeInitialization(Object bean, String beanName) {
 
-        System.out.println("BeanPostProcessor - BeforeInitialization : " + beanName);
+        System.out.println("BeanPostProcessor - BeforeInitialization: " + beanName);
 
         return bean;  // you can return any other object as well
     }
@@ -18,7 +18,7 @@ public class PrePostProcessorByMarkerInterface implements BeanPostProcessor {
     @Override // overriding a default method in the interface
     public Object postProcessAfterInitialization(Object bean, String beanName) {
 
-        System.out.println("BeanPostProcessor - AfterInitialization : " + beanName);
+        System.out.println("BeanPostProcessor - AfterInitialization: " + beanName);
 
         return bean;  // you can return any other object as well
     }
