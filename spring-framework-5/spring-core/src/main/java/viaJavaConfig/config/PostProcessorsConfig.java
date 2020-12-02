@@ -9,12 +9,12 @@ import viaJavaConfig.post_processors.PostProcessorByMarkerInterface;
 public class PostProcessorsConfig {
 
     @Bean
-    public PostProcessorByMarkerInterface postProcessorByMarkerInterface(){
+    public PostProcessorByMarkerInterface postProcessorByMarkerInterface() {
         return new PostProcessorByMarkerInterface();
     }
 
     @Bean
-    public BeanWithInitDestroyMethods beanWithInitDestroyMethods(){
+    public BeanWithInitDestroyMethods beanWithInitDestroyMethods() {
         BeanWithInitDestroyMethods beanWithInitDestroyMethods = new BeanWithInitDestroyMethods();
         beanWithInitDestroyMethods.setMsg("Random Message");
         return beanWithInitDestroyMethods;

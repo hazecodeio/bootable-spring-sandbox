@@ -15,11 +15,11 @@ public class BeanWithInitDestroyMethods implements BeanNameAware {
         this.msg = msg;
     }
 
-    void init(){
+    void init() {
         System.out.println(String.format("Bean with name (%s) is going through init.", name));
     }
 
-    void destroy(){
+    void destroy() {
         System.out.println(String.format("Bean with name (%s) will destroy now.", name));
     }
 

@@ -12,6 +12,7 @@
         <module>spring-core</module>
         <module>spring-mvc</module>
         <module>spring-rest</module>
+        <module>spring-ws</module>
     </modules>
 
     <name>${project.artifactId}</name>
@@ -27,7 +28,7 @@
 
         <!--spring-related-->
         <spring.version>5.3.1</spring.version>
-        <spring.ws.version></spring.ws.version>
+        <spring.ws.version>3.0.10.RELEASE</spring.ws.version>
         <spring.integration.version></spring.integration.version>
 
         <!--web-related-->
@@ -46,6 +47,7 @@
         <!--test-related-->
         <junit4.version>4.13.1</junit4.version>
         <junit5.version>5.6.3</junit5.version>
+        <assertj.version>3.18.1</assertj.version>
     </properties>
 
     <dependencies>
@@ -59,6 +61,11 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
             <version>${spring.version}</version>
         </dependency>
         <dependency>
@@ -89,6 +96,23 @@
             <version>${junit5.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>${assertj.version}</version>
+        </dependency>
+
+        <!-- logging -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
 
     </dependencies>
 
@@ -101,6 +125,17 @@
                 <artifactId>spring-webmvc</artifactId>
                 <version>${spring.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.springframework.ws</groupId>
+                <artifactId>spring-ws-core</artifactId>
+                <version>${spring.ws.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>wsdl4j</groupId>
+                <artifactId>wsdl4j</artifactId>
+                <version>1.6.3</version>
+            </dependency>
+
 
             <!-- format-related -->
             <dependency>
@@ -143,18 +178,6 @@
                 <version>${taglibs.version}</version>
             </dependency>
 
-
-            <!-- logging -->
-            <dependency>
-                <groupId>org.apache.logging.log4j</groupId>
-                <artifactId>log4j-api</artifactId>
-                <version>${log4j.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.logging.log4j</groupId>
-                <artifactId>log4j-core</artifactId>
-                <version>${log4j.version}</version>
-            </dependency>
 
         </dependencies>
 

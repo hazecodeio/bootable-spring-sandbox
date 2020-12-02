@@ -15,7 +15,7 @@ public class AutowiringConfig {
     }
 
     @Bean
-    Person person(){
+    Person person() {
         Person person = new Person();
         person.setFirstName("Kamal");
         person.setLastName("Harris");

@@ -19,7 +19,7 @@ public class CollectionConfig {
      * So, don't be confused by the prototype scope on one of its fields
      */
     @Bean
-    public CollectionOfThings collectionOfThings(List<String> names){
+    public CollectionOfThings collectionOfThings(List<String> names) {
         CollectionOfThings collectionOfThings = new CollectionOfThings();
         collectionOfThings.setNames(names);
         return collectionOfThings;
@@ -28,7 +28,7 @@ public class CollectionConfig {
     @Bean
     @Scope(value = BeanDefinition.SCOPE_PROTOTYPE)
     // If this bean is retrieved independently of the previous bean, then a new one will be created
-    public List<String> names(){
+    public List<String> names() {
         return List.of("Joe", "Kamala");
     }
 }
