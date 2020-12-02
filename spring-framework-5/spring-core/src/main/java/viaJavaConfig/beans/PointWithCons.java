@@ -1,8 +1,18 @@
-package viaXmlConfig.beans;
+package viaJavaConfig.beans;
 
-public class Coordinates {
+public class PointWithCons {
     private int x;
     private int y;
+
+    public PointWithCons(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public PointWithCons(Coordinates coordinates) {
+        x = coordinates.getX();
+        y = coordinates.getY();
+    }
 
     public int getX() {
         return x;
@@ -22,7 +32,7 @@ public class Coordinates {
 
     @Override
     public String toString() {
-        return "Coordinates{" +
+        return "PointWithCons{" +
                 "x=" + x +
                 ", y=" + y +
                 '}';

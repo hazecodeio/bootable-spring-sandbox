@@ -1,6 +1,9 @@
-package viaXmlConfig.post_processors;
+package viaJavaConfig.post_processors;
 
 import org.springframework.beans.factory.BeanNameAware;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
 public class BeanWithInitDestroyMethods implements BeanNameAware {
 
@@ -15,10 +18,13 @@ public class BeanWithInitDestroyMethods implements BeanNameAware {
         this.msg = msg;
     }
 
+    @PostConstruct
     void init(){
         System.out.println(String.format("Bean with name (%s) is going through init.", name));
+        System.out.println(msg);
     }
 
+    @PreDestroy
     void destroy(){
         System.out.println(String.format("Bean with name (%s) will destroy now.", name));
     }

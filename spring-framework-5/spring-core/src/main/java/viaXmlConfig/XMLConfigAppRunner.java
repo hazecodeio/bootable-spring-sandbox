@@ -62,7 +62,8 @@ public class XMLConfigAppRunner {
     private static void injectBeans() {
         printMethodNameViaStackWalker(1);
 
-        ApplicationContext appCtx = new ClassPathXmlApplicationContext("viaXmlConfig/di-bean-ctx.xml"); // Alternatively ("classpath:**/di-bean-ctx.xml")
+        // Alternatively ("classpath:**/di-bean-ctx.xml")
+        ApplicationContext appCtx = new ClassPathXmlApplicationContext("viaXmlConfig/di-bean-ctx.xml");
 
         System.out.println("---");
         Point point10 = (Point) appCtx.getBean("point10");

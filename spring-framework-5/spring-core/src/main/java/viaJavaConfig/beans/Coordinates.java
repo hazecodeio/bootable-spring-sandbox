@@ -1,4 +1,4 @@
-package viaXmlConfig.beans;
+package viaJavaConfig.beans;
 
 public class Coordinates {
     private int x;

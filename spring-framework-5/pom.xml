@@ -68,6 +68,14 @@
             <scope>test</scope>
         </dependency>
 
+        <!--java-related annotations-->
+        <!--@PostConstruct @PreDestroy-->
+        <dependency>
+            <groupId>javax.annotation</groupId>
+            <artifactId>javax.annotation-api</artifactId>
+            <version>1.3.2</version>
+        </dependency>
+
         <!--test-related-->
         <dependency>
             <groupId>junit</groupId>

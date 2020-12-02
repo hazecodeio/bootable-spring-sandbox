@@ -1,6 +1,6 @@
-package viaXmlConfig.beans;
+package viaJavaConfig.beans;
 
-public class Coordinates {
+public class Point {
     private int x;
     private int y;
 
@@ -22,7 +22,7 @@ public class Coordinates {
 
     @Override
     public String toString() {
-        return "Coordinates{" +
+        return "Point{" +
                 "x=" + x +
                 ", y=" + y +
                 '}';

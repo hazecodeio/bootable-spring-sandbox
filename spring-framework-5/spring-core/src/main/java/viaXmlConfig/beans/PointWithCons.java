@@ -29,4 +29,12 @@ public class PointWithCons {
     public void setY(int y) {
         this.y = y;
     }
+
+    @Override
+    public String toString() {
+        return "PointWithCons{" +
+                "x=" + x +
+                ", y=" + y +
+                '}';
+    }
 }
