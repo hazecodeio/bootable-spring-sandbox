@@ -15,11 +15,14 @@
     <name>${project.artifactId}</name>
 
     <dependencies>
+        <!--spring-->
         <dependency>
             <groupId>org.springframework.ws</groupId>
             <artifactId>spring-ws-core</artifactId>
             <version>${spring.ws.version}</version>
         </dependency>
+
+        <!--XSD Schema loading from classpath-->
         <dependency>
             <groupId>org.apache.ws.xmlschema</groupId>
             <artifactId>xmlschema-core</artifactId> <!--Needed for feeding multiple XSD Schemas to CommonsXsdSchemaCollection-->
@@ -27,7 +30,7 @@
         </dependency>
         <dependency>
             <groupId>wsdl4j</groupId>
-            <artifactId>wsdl4j</artifactId>
+            <artifactId>wsdl4j</artifactId> <!--Need for wsdl endpoint-->
         </dependency>
 
         <!--SOAP/SAAJ-->
@@ -76,7 +79,7 @@
                     <execution>
                         <id>xjc</id>
                         <goals>
-                            <goal>xjc</goal>
+                            <goal>xjc</goal> <!-- Generate domain classes-->
                         </goals>
                     </execution>
                 </executions>
