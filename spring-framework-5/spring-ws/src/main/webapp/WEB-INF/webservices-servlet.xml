@@ -1,9 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:sws="http://www.springframework.org/schema/web-services"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-							http://www.springframework.org/schema/beans/spring-beans.xsd">
+							http://www.springframework.org/schema/beans/spring-beans.xsd
+							http://www.springframework.org/schema/util
+							https://www.springframework.org/schema/util/spring-util.xsd
+							http://www.springframework.org/schema/context
+							https://www.springframework.org/schema/context/spring-context.xsd
+							http://www.springframework.org/schema/web-services
+							http://www.springframework.org/schema/web-services/web-services.xsd">
 
-    <import resource="classpath:app-context.xml"/>
+    <!--Annotations Config-->
+    <context:component-scan base-package="org.hsmak.ws"/>
+    <sws:annotation-driven/>
+    <bean class="org.springframework.ws.soap.server.endpoint.SoapFaultAnnotationExceptionResolver"/>
+
+    <!-- Bean's name will be the WSDL file in (http://host:port/spring_ws/ws/countries.wsdl)-->
+    <bean id="countries" class="org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition">
+        <property name="schemaCollection">
+            <bean class="org.springframework.xml.xsd.commons.CommonsXsdSchemaCollection">
+                <property name="inline" value="true"/>
+                <property name="xsds">
+                    <util:list>
+                        <value>classpath:schemas/countries.xsd</value>
+                    </util:list>
+                </property>
+            </bean>
+        </property>
+        <property name="portTypeName" value="CountriesPort"/>
+        <property name="serviceName" value="CountriesService"/>
+        <property name="locationUri" value="/ws"/>
+    </bean>
+
+    <!--SWS Interceptors-->
+
+    <sws:interceptors>
+        <ref bean="logInterceptor"/>
+        <ref bean="validatingInterceptor"/>
+    </sws:interceptors>
+
+    <bean id="logInterceptor"
+          class="org.springframework.ws.server.endpoint.interceptor.PayloadLoggingInterceptor"
+          p:logRequest="true"
+          p:logResponse="true"/>
+
+    <bean id="validatingInterceptor"
+          class="org.springframework.ws.soap.server.endpoint.interceptor.PayloadValidatingInterceptor"
+          p:validateRequest="true"
+          p:validateResponse="true">
+        <property name="schemas">
+            <util:list>
+                <value>classpath:schemas/countries.xsd</value>
+            </util:list>
+        </property>
+    </bean>
 
 </beans>

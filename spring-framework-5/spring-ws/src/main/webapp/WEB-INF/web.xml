@@ -6,6 +6,18 @@
 
     <display-name>HoHoHo</display-name>
 
+    <!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:app-context.xml</param-value>
+    </context-param>
+
+    <!--Creates the Spring Container shared by all Servlets and Filters-->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+    <!--WS MessageDispatcherServlets-->
     <servlet>
         <servlet-name>webservices</servlet-name>
         <servlet-class>org.springframework.ws.transport.http.MessageDispatcherServlet</servlet-class>
@@ -15,15 +27,10 @@
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
-
-    <servlet-mapping>
-        <servlet-name>webservices</servlet-name>
-        <url-pattern>*.wsdl</url-pattern>
-    </servlet-mapping>
-
     <servlet-mapping>
         <servlet-name>webservices</servlet-name>
         <url-pattern>/ws/*</url-pattern>
+        <url-pattern>*.wsdl</url-pattern>
     </servlet-mapping>
 
 </web-app>

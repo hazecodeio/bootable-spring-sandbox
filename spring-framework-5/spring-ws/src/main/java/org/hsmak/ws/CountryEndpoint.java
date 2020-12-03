@@ -9,6 +9,8 @@ import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
+import org.springframework.ws.soap.server.endpoint.annotation.FaultCode;
+import org.springframework.ws.soap.server.endpoint.annotation.SoapFault;
 
 @Endpoint
 public class CountryEndpoint {
@@ -32,6 +34,17 @@ public class CountryEndpoint {
         GetCountryResponse response = new GetCountryResponse();
         response.setCountry(countryRepository.findCountry(request.getName()));
 
+        if(request.getName().equalsIgnoreCase("F"))
+            throw new SomeBusinessException("This is an F");
+
         return response;
+    }
+}
+
+@SoapFault(faultCode = FaultCode.SERVER)
+class SomeBusinessException extends RuntimeException {
+
+    public SomeBusinessException(String message) {
+        super(message);
     }
 }
