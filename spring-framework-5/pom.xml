@@ -12,6 +12,7 @@
         <module>spring-core</module>
         <module>spring-mvc</module>
         <module>spring-rest</module>
+        <module>spring-mix-in</module>
         <module>spring-ws</module>
     </modules>
 

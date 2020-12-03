@@ -3,7 +3,7 @@
 
     <Properties>
         <Property name="LOG_PATTERN">%d{yyyy-MM-dd'T'HH:mm:ss.SSSZ} %-5p %c - %m%n</Property>
-        <Property name="APP_LOG_ROOT">/tmp/spring-mvc</Property>
+        <Property name="APP_LOG_ROOT">/tmp/spring-mix-in</Property>
     </Properties>
 
     <Appenders>

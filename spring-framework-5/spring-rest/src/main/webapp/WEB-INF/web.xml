@@ -6,8 +6,7 @@
 
     <display-name>HoHoHo</display-name>
 
-    <!-- The definition of the Root Spring Container shared by all Servlets
-        and Filters -->
+    <!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath:app-context.xml</param-value>

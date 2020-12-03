@@ -1,28 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:mvc="http://www.springframework.org/schema/mvc"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
-
-    <!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
-    <context:component-scan base-package="org.hsmak"/>
-    <context:annotation-config/>
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!--
-        ToDo - Find why:
-                    - YamlHttpMessageConverter failed to render response when this was enabled?
-                    - @Controller works just fine with <context:component-scan/> and <context:annotation-config/>?
+        Having separate Spring Contexts comes in handy when main interacting components need to:
+            - Be contained within a structural design; architectural patter
+            - Not interfere with each other, e.g.
+                - Can't configure MVC controller in the same environment a REST controller is configured
+                - Each has it's own Servlet, Configurations, Contexts, etc
     -->
-    <mvc:annotation-driven/>
-
-    <!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
-    <mvc:resources mapping="/resources/**" location="/resources/"/>
-
-
-    <!-- Imports user-defined @Controller beans that process client requests -->
-    <!--<import resource="controllers.xml"/>-->
 
 </beans>

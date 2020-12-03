@@ -9,7 +9,7 @@
 
 
     <!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
-    <context:component-scan base-package="org.hsmak.controller"/>
+    <context:component-scan base-package="org.hsmak.rest"/>
     <context:annotation-config/>
 
 </beans>
