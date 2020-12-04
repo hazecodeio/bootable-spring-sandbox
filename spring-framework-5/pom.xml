@@ -14,8 +14,7 @@
         <module>spring-rest</module>
         <module>spring-mix-in</module>
         <module>spring-ws</module>
-        <module>spring-hibernate-integration</module>
-        <!--        <module>spring-data-jpa-minibox</module>-->
+        <module>spring-data-minibox</module>
     </modules>
 
     <name>${project.artifactId}</name>
