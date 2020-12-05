@@ -3,16 +3,14 @@ package org.hsmak.jpa;
 import org.hsmak.jpa.config.AppConfig;
 import org.hsmak.jpa.entity.User;
 import org.hsmak.jpa.service.UserService;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-
-import java.util.List;
 
 public class MainApp {
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext context =
-                new AnnotationConfigApplicationContext(AppConfig.class);
+        ApplicationContext appCtx = new AnnotationConfigApplicationContext(AppConfig.class);
 
-        UserService userService = context.getBean(UserService.class);
+        UserService userService = appCtx.getBean(UserService.class);
 
         // Add Users
         userService.add(new User("Sunil", "Bora", "suni.bora@example.com"));
@@ -21,15 +19,6 @@ public class MainApp {
         userService.add(new User("Paul", "Smith", "paul.smith@example.com"));
 
         // Get Users
-        List<User> users = userService.listUsers();
-        for (User user : users) {
-            System.out.println("Id = " + user.getId());
-            System.out.println("First Name = " + user.getFirstName());
-            System.out.println("Last Name = " + user.getLastName());
-            System.out.println("Email = " + user.getEmail());
-            System.out.println();
-        }
-
-        context.close();
+        userService.listUsers().forEach(System.out::println);
     }
 }

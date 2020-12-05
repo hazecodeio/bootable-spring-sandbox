@@ -14,9 +14,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 
-/**
- * @author imssbora
- */
 @Configuration
 @PropertySource("classpath:jpa/db.properties")
 @EnableTransactionManagement
@@ -41,7 +38,7 @@ public class AppConfig {
     @Bean
     public LocalContainerEntityManagerFactoryBean getEntityManagerFactoryBean() {
         LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
-//        factoryBean.setPersistenceUnitName("LOCAL_PERSISTENCE");
+
         factoryBean.setDataSource(getDataSource());
         factoryBean.setPackagesToScan("org.hsmak.jpa.entity");
 
@@ -53,7 +50,6 @@ public class AppConfig {
 
         return factoryBean;
     }
-
 
     @Bean
     public JpaTransactionManager getJpaTransactionManager() {
