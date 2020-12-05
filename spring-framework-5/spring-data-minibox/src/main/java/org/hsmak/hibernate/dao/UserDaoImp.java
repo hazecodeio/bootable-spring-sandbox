@@ -1,7 +1,7 @@
-package org.hsmak.hibernate.app.dao;
+package org.hsmak.hibernate.dao;
 
 import org.hibernate.SessionFactory;
-import org.hsmak.hibernate.app.entity.User;
+import org.hsmak.hibernate.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 

@@ -1,7 +1,7 @@
-package org.hsmak.hibernate.app.service;
+package org.hsmak.hibernate.service;
 
-import org.hsmak.hibernate.app.dao.UserDao;
-import org.hsmak.hibernate.app.entity.User;
+import org.hsmak.hibernate.dao.UserDao;
+import org.hsmak.hibernate.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

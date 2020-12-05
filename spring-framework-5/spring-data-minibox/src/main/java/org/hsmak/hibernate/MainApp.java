@@ -1,8 +1,8 @@
-package org.hsmak.hibernate.app;
+package org.hsmak.hibernate;
 
-import org.hsmak.hibernate.app.config.AppConfig;
-import org.hsmak.hibernate.app.entity.User;
-import org.hsmak.hibernate.app.service.UserService;
+import org.hsmak.hibernate.config.AppConfig;
+import org.hsmak.hibernate.entity.User;
+import org.hsmak.hibernate.service.UserService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 

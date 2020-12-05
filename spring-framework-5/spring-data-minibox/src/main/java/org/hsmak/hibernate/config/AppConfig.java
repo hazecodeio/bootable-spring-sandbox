@@ -1,7 +1,7 @@
-package org.hsmak.hibernate.app.config;
+package org.hsmak.hibernate.config;
 
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
-import org.hsmak.hibernate.app.entity.User;
+import org.hsmak.hibernate.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -16,9 +16,9 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
-@PropertySource("classpath:hibernate/app/db.properties")
+@PropertySource("classpath:hibernate/db.properties")
 @EnableTransactionManagement
-@ComponentScan("org.hsmak.hibernate.app")
+@ComponentScan("org.hsmak.hibernate")
 public class AppConfig {
 
     @Autowired

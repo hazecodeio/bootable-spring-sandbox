@@ -1,6 +1,6 @@
-package org.hsmak.hibernate.app.service;
+package org.hsmak.hibernate.service;
 
-import org.hsmak.hibernate.app.entity.User;
+import org.hsmak.hibernate.entity.User;
 
 import java.util.List;
 
