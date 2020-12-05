@@ -13,15 +13,15 @@ import javax.sql.DataSource;
 @Configuration
 public class DerbyDataSource {
 
-	//jdbc:derby:memory:testdb
-	@Bean
-	public DataSource dataSource() {
+    //jdbc:derby:memory:testdb
+    @Bean
+    public DataSource dataSource() {
 
-		EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
-		EmbeddedDatabase db = builder.setType(EmbeddedDatabaseType.DERBY)
-				.addScript("jdbc/sql/create-db.sql")
-				.addScript("jdbc/sql/insert-data.sql").build();
-		return db;
+        EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
+        EmbeddedDatabase db = builder.setType(EmbeddedDatabaseType.DERBY)
+                .addScript("jdbc/sql/create-db.sql")
+                .addScript("jdbc/sql/insert-data.sql").build();
+        return db;
 
-	}
+    }
 }

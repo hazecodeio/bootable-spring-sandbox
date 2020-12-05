@@ -3,7 +3,6 @@ package org.hsmak.hibernate.bootstrap.config;
 
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
@@ -21,7 +20,7 @@ public class HibernateConf {
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
-        sessionFactory.setPackagesToScan(new String[]{"org.hsmak.hibernate.bootstrap.model"});
+        sessionFactory.setPackagesToScan("org.hsmak.hibernate.bootstrap.model");
         sessionFactory.setHibernateProperties(hibernateProperties());
 
         return sessionFactory;

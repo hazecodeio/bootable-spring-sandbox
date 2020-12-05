@@ -16,7 +16,7 @@ public class JDBCAppRunner {
     }
 }
 
-class AnotherRunner{
+class AnotherRunner {
     public static void main(String[] args) {
         System.setProperty("spring.profiles.active", "derby");
         ApplicationContext appContext = new AnnotationConfigApplicationContext(DBConfig.class);
