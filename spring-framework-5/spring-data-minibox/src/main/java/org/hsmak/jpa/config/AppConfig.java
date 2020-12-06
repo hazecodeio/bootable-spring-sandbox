@@ -13,6 +13,7 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
+import java.util.Properties;
 
 @Configuration
 @PropertySource("classpath:jpa/db.properties")
@@ -42,10 +43,17 @@ public class AppConfig {
         factoryBean.setDataSource(getDataSource());
         factoryBean.setPackagesToScan("org.hsmak.jpa.entity");
 
+        // link: https://docs.spring.io/spring-boot/docs/current/reference/html/howto.html#howto-data-access
+        Properties props = new Properties();
+        props.put("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
+        props.put("hibernate.generate-ddl", env.getProperty("hibernate.generate-ddl", Boolean.class));
+        props.put("hibernate.show_sql", env.getProperty("hibernate.show_sql", Boolean.class));
+        factoryBean.setJpaProperties(props);
+
         //Setting the Hibernate Adapter
         HibernateJpaVendorAdapter hibernateJpaVendorAdapter = new HibernateJpaVendorAdapter();
-        hibernateJpaVendorAdapter.setGenerateDdl(true);
-        hibernateJpaVendorAdapter.setShowSql(env.getProperty("hibernate.show_sql", Boolean.class));
+//        hibernateJpaVendorAdapter.setGenerateDdl(env.getProperty("hibernate.generate-ddl", Boolean.class));
+//        hibernateJpaVendorAdapter.setShowSql(env.getProperty("hibernate.show_sql", Boolean.class));
         factoryBean.setJpaVendorAdapter(hibernateJpaVendorAdapter);
 
         return factoryBean;
