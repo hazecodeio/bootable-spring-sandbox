@@ -6,7 +6,7 @@ import org.hsmak.jpa.service.UserService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-public class MainApp {
+public class JpaAppRunner {
     public static void main(String[] args) {
         ApplicationContext appCtx = new AnnotationConfigApplicationContext(AppConfig.class);
 
