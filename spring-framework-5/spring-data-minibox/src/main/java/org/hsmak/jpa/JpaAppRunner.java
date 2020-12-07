@@ -13,9 +13,9 @@ public class JpaAppRunner {
         UserService userService = appCtx.getBean(UserService.class);
 
         // Add Users
-        userService.add(new User("Sunil", "Bora", "suni.bora@example.com"));
+        userService.add(new User("Matt", "John", "Matt.John@example.com"));
         userService.add(new User("David", "Miller", "david.miller@example.com"));
-        userService.add(new User("Sameer", "Singh", "sameer.singh@example.com"));
+        userService.add(new User("Alice", "Biden", "Alice.Biden@example.com"));
         userService.add(new User("Paul", "Smith", "paul.smith@example.com"));
 
         // Get Users

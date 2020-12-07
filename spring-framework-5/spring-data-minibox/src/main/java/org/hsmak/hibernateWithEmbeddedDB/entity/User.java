@@ -1,4 +1,4 @@
-package org.hsmak.hibernate.entity;
+package org.hsmak.hibernateWithEmbeddedDB.entity;
 
 import javax.persistence.*;
 

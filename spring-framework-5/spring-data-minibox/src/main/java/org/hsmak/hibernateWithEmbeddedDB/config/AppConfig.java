@@ -1,13 +1,16 @@
-package org.hsmak.hibernate.config;
+package org.hsmak.hibernateWithEmbeddedDB.config;
 
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
-import org.hsmak.hibernate.entity.User;
+import org.hsmak.hibernateWithEmbeddedDB.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -16,9 +19,9 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
-@PropertySource("classpath:hibernate/db.properties")
+@PropertySource("classpath:hibernateWithEmbeddedDB/db.properties")
 @EnableTransactionManagement
-@ComponentScan("org.hsmak.hibernate")
+@ComponentScan("org.hsmak.hibernateWithEmbeddedDB")
 public class AppConfig {
 
     @Autowired
@@ -26,14 +29,15 @@ public class AppConfig {
 
     @Bean
     public DataSource getDataSource() {
-        BasicDataSource dataSource = new BasicDataSource();
 
-        dataSource.setDriverClassName(env.getProperty("db.driver"));
-        dataSource.setUrl(env.getProperty("db.url"));
-        dataSource.setUsername(env.getProperty("db.username"));
-        dataSource.setPassword(env.getProperty("db.password"));
+        // Just stick to the regular DataSource and hibernate will take care of the initialization
+        EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
+        EmbeddedDatabase db = builder.setType(EmbeddedDatabaseType.H2)
+                .addScript("hibernateWithEmbeddedDB/sql/create.sql")
+                .addScript("hibernateWithEmbeddedDB/sql/import.sql")
+                .build();
+        return db;
 
-        return dataSource;
     }
 
     @Bean
@@ -43,9 +47,10 @@ public class AppConfig {
 
         Properties props = new Properties();
         props.put("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
-        props.put("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
-        // This has to be used with "hibernate.hbm2ddl.auto=creat-drop"
-        props.put("hibernate.hbm2ddl.import_files", "hibernate/sql/import.sql");
+
+        //Note that this will override the Embedded DB's initialization even if it's set to "update"
+//        props.put("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
+//        props.put("hibernate.hbm2ddl.import_files", "hibernateWithEmbeddedDB/sql/import.sql");
 
         factoryBean.setHibernateProperties(props);
         factoryBean.setAnnotatedClasses(User.class);
