@@ -1,4 +1,4 @@
-package org.hsmak.hibernateWithMappings.entity;
+package org.hsmak.hibernateWithMappings.entityUnidirectional;
 
 import javax.persistence.*;
 
@@ -8,6 +8,7 @@ public class UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_details_id")
     private Long id;
 
     @Column(name = "first_name")

@@ -51,7 +51,7 @@ public class AppConfig {
 //        props.put("hibernate.hbm2ddl.import_files", "hibernate/sql/import.sql");
 
         factoryBean.setHibernateProperties(props);
-        factoryBean.setPackagesToScan("org.hsmak.hibernateWithMappings.entity");
+        factoryBean.setPackagesToScan("org.hsmak.hibernateWithMappings.entityUnidirectional");
         return factoryBean;
     }
 

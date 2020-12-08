@@ -1,7 +1,8 @@
 package org.hsmak.hibernateWithMappings.dao;
 
 import org.hibernate.SessionFactory;
-import org.hsmak.hibernateWithMappings.entity.User;
+import org.hsmak.hibernateWithMappings.entityUnidirectional.Car;
+import org.hsmak.hibernateWithMappings.entityUnidirectional.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -24,6 +25,17 @@ public class UserDaoImp implements UserDao {
     public List<User> listUsers() {
         @SuppressWarnings("unchecked")
         TypedQuery<User> query = sessionFactory.getCurrentSession().createQuery("from User");
+        return query.getResultList();
+    }
+
+    @Override
+    public void add(Car car) {
+        sessionFactory.getCurrentSession().save(car);
+    }
+
+    @Override
+    public List<Car> listCars() {
+        TypedQuery<Car> query = sessionFactory.getCurrentSession().createQuery("from Car");
         return query.getResultList();
     }
 }

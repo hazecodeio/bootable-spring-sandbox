@@ -1,4 +1,4 @@
-package org.hsmak.hibernateWithMappings.entity;
+package org.hsmak.hibernateWithMappings.entityUnidirectional;
 
 import javax.persistence.*;
 

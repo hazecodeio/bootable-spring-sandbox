@@ -1,9 +1,10 @@
 package org.hsmak.hibernateWithMappings;
 
 import org.hsmak.hibernateWithMappings.config.AppConfig;
-import org.hsmak.hibernateWithMappings.entity.Address;
-import org.hsmak.hibernateWithMappings.entity.User;
-import org.hsmak.hibernateWithMappings.entity.UserDetails;
+import org.hsmak.hibernateWithMappings.entityUnidirectional.Address;
+import org.hsmak.hibernateWithMappings.entityUnidirectional.Car;
+import org.hsmak.hibernateWithMappings.entityUnidirectional.User;
+import org.hsmak.hibernateWithMappings.entityUnidirectional.UserDetails;
 import org.hsmak.hibernateWithMappings.service.UserService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -24,7 +25,16 @@ public class HibernateWithMappingsAppRunner {
                 new Address(456, "Another street")));
         userService.add(user);
 
+        Car car1 = new Car("Ford", "Mustang", user);
+        Car car2 = new Car("Ford2", "Mustang2", user);
+        userService.add(car1);
+        userService.add(car2);
+
+
         // Get Users
         userService.listUsers().forEach(System.out::println);
+        System.out.println();
+
+        userService.listCars().forEach(System.out::println);
     }
 }
