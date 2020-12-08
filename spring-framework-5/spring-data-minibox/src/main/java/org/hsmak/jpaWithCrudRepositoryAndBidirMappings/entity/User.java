@@ -1,4 +1,4 @@
-package org.hsmak.hibernateWithMappings.entityUnidirectional;
+package org.hsmak.jpaWithCrudRepositoryAndBidirMappings.entity;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -8,7 +8,7 @@ import java.util.Set;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
+    @Column(name = "id")
     private Long id;
 
     @Column(name = "username", nullable = false, unique = true)
@@ -17,13 +17,16 @@ public class User {
     @Column(name = "password")
     private String password;
 
-    @OneToOne(cascade = CascadeType.ALL) // Unidirectional
-    @JoinColumn(name = "user_details_id")
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "user") // Bidirectional
+//    @JoinColumn(name = "user_details_id") // link: https://www.baeldung.com/jpa-joincolumn-vs-mappedby
     private UserDetails userDetails;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)// UniDirectional
-    @JoinColumn(name = "address_id")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user",fetch = FetchType.EAGER)// BiDirectional
+//    @JoinColumn(name = "user_id") // This map the primary key of User as a FK inn the target instead of creating a separate table for the mapping
     private Set<Address> addresses;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user", fetch = FetchType.EAGER)
+    private Set<Car> cars;
 
     public User() {
     }
@@ -31,6 +34,14 @@ public class User {
     public User(String username, String password) {
         this.username = username;
         this.password = password;
+    }
+
+    public User(String username, String password, UserDetails userDetails, Set<Address> addresses, Set<Car> cars) {
+        this.username = username;
+        this.password = password;
+        this.userDetails = userDetails;
+        this.addresses = addresses;
+        this.cars = cars;
     }
 
     public Long getId() {
@@ -73,6 +84,14 @@ public class User {
         this.addresses = addresses;
     }
 
+    public Set<Car> getCars() {
+        return cars;
+    }
+
+    public void setCars(Set<Car> cars) {
+        this.cars = cars;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -81,6 +100,7 @@ public class User {
                 ", password='" + password + '\'' +
                 ", userDetails=" + userDetails +
                 ", addresses=" + addresses +
+                ", cars=" + cars +
                 '}';
     }
 }
