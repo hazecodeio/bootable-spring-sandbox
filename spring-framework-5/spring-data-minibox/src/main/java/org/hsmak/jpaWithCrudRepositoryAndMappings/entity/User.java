@@ -27,6 +27,7 @@ public class User {
      */
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)// UniDirectional
     @JoinColumn(name = "user_id")
+    // This map the primary key of User as a FK inn the target instead of making the mapping in a a separate table
     private Set<Address> addresses;
 
     public User() {
