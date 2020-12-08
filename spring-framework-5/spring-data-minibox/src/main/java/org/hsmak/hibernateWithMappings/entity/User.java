@@ -1,13 +1,15 @@
 package org.hsmak.hibernateWithMappings.entity;
 
 import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
     private Long id;
 
     @Column(name = "username", nullable = false, unique = true)
@@ -17,8 +19,16 @@ public class User {
     private String password;
 
     @OneToOne(cascade = CascadeType.ALL) // Unidirectional
-    @JoinColumn(name="user_details_id")
+    @JoinColumn(name = "user_details_id")
     private UserDetails userDetails;
+
+    /*
+     * Must be Eager, WHY?? the (n + 1) problem
+     *  - Link: https://www.baeldung.com/hibernate-initialize-proxy-exception
+     */
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)// UniDirectional
+    @JoinColumn(name = "address_id")
+    private Set<Address> addresses;
 
     public User() {
     }
@@ -26,6 +36,14 @@ public class User {
     public User(String username, String password) {
         this.username = username;
         this.password = password;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getUsername() {
@@ -52,6 +70,14 @@ public class User {
         this.userDetails = userDetails;
     }
 
+    public Set<Address> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(Set<Address> addresses) {
+        this.addresses = addresses;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -59,6 +85,7 @@ public class User {
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", userDetails=" + userDetails +
+                ", addresses=" + addresses +
                 '}';
     }
 }
