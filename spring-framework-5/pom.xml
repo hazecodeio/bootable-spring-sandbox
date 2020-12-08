@@ -57,6 +57,7 @@
         <assertj.version>3.18.1</assertj.version>
         <surefire.version>3.0.0-M5</surefire.version>
         <tomcat.version>9.0.40</tomcat.version>
+        <derby.version>10.15.2.0</derby.version>
     </properties>
 
     <dependencies>
@@ -229,6 +230,16 @@
                 <artifactId>h2</artifactId>
                 <version>${h2.version}</version>
                 <scope>runtime</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.derby</groupId>
+                <artifactId>derby</artifactId>
+                <version>${derby.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.derby</groupId>
+                <artifactId>derbytools</artifactId>
+                <version>${derby.version}</version>
             </dependency>
 
         </dependencies>
