@@ -1,14 +1,12 @@
 package org.hsmak.hibernate.config;
 
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
-import org.hsmak.hibernate.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -52,7 +50,7 @@ public class AppConfig {
         props.put("hibernate.hbm2ddl.import_files", "hibernate/sql/import.sql");
 
         factoryBean.setHibernateProperties(props);
-        factoryBean.setAnnotatedClasses(User.class);
+        factoryBean.setPackagesToScan("org.hsmak.hibernate.entity");
         return factoryBean;
     }
 
