@@ -1,4 +1,4 @@
-package org.hsmak.jpaWithCrudRepositoryAndMappings.entity;
+package org.hsmak.jpaWithCrudRepositoryAndUnidirMappings.entity;
 
 import javax.persistence.*;
 

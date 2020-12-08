@@ -1,20 +1,18 @@
-package org.hsmak.jpaWithCrudRepositoryAndMappings;
+package org.hsmak.jpaWithCrudRepositoryAndUnidirMappings;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.spi.LoggerContext;
-import org.hsmak.jpaWithCrudRepositoryAndMappings.config.AppConfig;
-import org.hsmak.jpaWithCrudRepositoryAndMappings.entity.Address;
-import org.hsmak.jpaWithCrudRepositoryAndMappings.entity.Car;
-import org.hsmak.jpaWithCrudRepositoryAndMappings.entity.User;
-import org.hsmak.jpaWithCrudRepositoryAndMappings.entity.UserDetails;
-import org.hsmak.jpaWithCrudRepositoryAndMappings.repository.CarJpaRepository;
-import org.hsmak.jpaWithCrudRepositoryAndMappings.repository.UserJpaRepository;
+import org.hsmak.jpaWithCrudRepositoryAndUnidirMappings.config.AppConfig;
+import org.hsmak.jpaWithCrudRepositoryAndUnidirMappings.entity.Address;
+import org.hsmak.jpaWithCrudRepositoryAndUnidirMappings.entity.Car;
+import org.hsmak.jpaWithCrudRepositoryAndUnidirMappings.entity.User;
+import org.hsmak.jpaWithCrudRepositoryAndUnidirMappings.entity.UserDetails;
+import org.hsmak.jpaWithCrudRepositoryAndUnidirMappings.repository.CarJpaRepository;
+import org.hsmak.jpaWithCrudRepositoryAndUnidirMappings.repository.UserJpaRepository;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.util.Set;
 
-public class JpaWithCrudRepositoryAndMappingsAppRunner {
+public class AppRunnerWithUnidirMappings {
     public static void main(String[] args) {
         ApplicationContext appCtx = new AnnotationConfigApplicationContext(AppConfig.class);
 

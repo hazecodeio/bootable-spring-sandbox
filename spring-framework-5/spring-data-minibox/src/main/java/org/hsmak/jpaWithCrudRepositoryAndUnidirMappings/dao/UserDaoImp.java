@@ -1,6 +1,6 @@
-package org.hsmak.jpaWithCrudRepositoryAndMappings.dao;
+package org.hsmak.jpaWithCrudRepositoryAndUnidirMappings.dao;
 
-import org.hsmak.jpaWithCrudRepositoryAndMappings.entity.User;
+import org.hsmak.jpaWithCrudRepositoryAndUnidirMappings.entity.User;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;

@@ -1,4 +1,4 @@
-package org.hsmak.jpaWithCrudRepositoryAndMappings.entity;
+package org.hsmak.jpaWithCrudRepositoryAndUnidirMappings.entity;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -26,8 +26,7 @@ public class User {
      *  - Link: https://www.baeldung.com/hibernate-initialize-proxy-exception
      */
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)// UniDirectional
-    @JoinColumn(name = "user_id")
-    // This map the primary key of User as a FK inn the target instead of making the mapping in a a separate table
+    @JoinColumn(name = "user_id") // This map the primary key of User as a FK inn the target instead of creating a separate table for the mapping
     private Set<Address> addresses;
 
     public User() {

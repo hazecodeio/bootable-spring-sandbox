@@ -1,4 +1,4 @@
-package org.hsmak.jpaWithCrudRepositoryAndMappings.config;
+package org.hsmak.jpaWithCrudRepositoryAndUnidirMappings.config;
 
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +19,8 @@ import java.util.Properties;
 @Configuration
 @PropertySource("classpath:jpa/db.properties")
 @EnableTransactionManagement
-@EnableJpaRepositories("org.hsmak.jpaWithCrudRepositoryAndMappings.repository")
-@ComponentScan("org.hsmak.jpaWithCrudRepositoryAndMappings")
+@EnableJpaRepositories("org.hsmak.jpaWithCrudRepositoryAndUnidirMappings.repository")
+@ComponentScan("org.hsmak.jpaWithCrudRepositoryAndUnidirMappings")
 public class AppConfig {
 
     @Autowired
@@ -46,13 +46,14 @@ public class AppConfig {
         LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
 
         factoryBean.setDataSource(dataSource());
-        factoryBean.setPackagesToScan("org.hsmak.jpaWithCrudRepositoryAndMappings.entity");
+        factoryBean.setPackagesToScan("org.hsmak.jpaWithCrudRepositoryAndUnidirMappings.entity");
 
         // link: https://docs.spring.io/spring-boot/docs/current/reference/html/howto.html#howto-data-access
         Properties props = new Properties();
         props.put("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
         props.put("hibernate.generate-ddl", env.getProperty("hibernate.generate-ddl", Boolean.class));
         props.put("hibernate.show_sql", env.getProperty("hibernate.show_sql", Boolean.class));
+        props.put("hibernate.dialect", env.getProperty("hibernate.dialect"));
         factoryBean.setJpaProperties(props);
 
         //Setting the Hibernate Adapter

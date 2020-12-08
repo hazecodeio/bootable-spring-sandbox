@@ -1,6 +1,6 @@
-package org.hsmak.jpaWithCrudRepositoryAndMappings.repository;
+package org.hsmak.jpaWithCrudRepositoryAndUnidirMappings.repository;
 
-import org.hsmak.jpaWithCrudRepositoryAndMappings.entity.User;
+import org.hsmak.jpaWithCrudRepositoryAndUnidirMappings.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /*
