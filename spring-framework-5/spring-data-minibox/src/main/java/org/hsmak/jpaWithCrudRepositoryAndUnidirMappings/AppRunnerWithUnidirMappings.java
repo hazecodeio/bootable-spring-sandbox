@@ -1,10 +1,7 @@
 package org.hsmak.jpaWithCrudRepositoryAndUnidirMappings;
 
 import org.hsmak.jpaWithCrudRepositoryAndUnidirMappings.config.AppConfig;
-import org.hsmak.jpaWithCrudRepositoryAndUnidirMappings.entity.Address;
-import org.hsmak.jpaWithCrudRepositoryAndUnidirMappings.entity.Car;
-import org.hsmak.jpaWithCrudRepositoryAndUnidirMappings.entity.User;
-import org.hsmak.jpaWithCrudRepositoryAndUnidirMappings.entity.UserDetails;
+import org.hsmak.jpaWithCrudRepositoryAndUnidirMappings.entity.*;
 import org.hsmak.jpaWithCrudRepositoryAndUnidirMappings.repository.CarJpaRepository;
 import org.hsmak.jpaWithCrudRepositoryAndUnidirMappings.repository.UserJpaRepository;
 import org.springframework.context.ApplicationContext;
@@ -19,17 +16,17 @@ public class AppRunnerWithUnidirMappings {
         UserJpaRepository userJpaRepository = appCtx.getBean(UserJpaRepository.class);
         CarJpaRepository carJpaRepository = appCtx.getBean(CarJpaRepository.class);
 
-        // Add Users
-//        userJpaRepository.save(new User("Matt", "John", "Matt.John@example.com"));
-//        userJpaRepository.save(new User("David", "Miller", "david.miller@example.com"));
-//        userJpaRepository.save(new User("Alice", "Biden", "Alice.Biden@example.com"));
-//        userJpaRepository.save(new User("Paul", "Smith", "paul.smith@example.com"));
-
         User user = new User("PaulUsername", "PaulPWD");
         user.setUserDetails(new UserDetails("Paul", "Smith", "Paul.Smith@example.com"));
         user.setAddresses(Set.of(
                 new Address(123, "some street"),
                 new Address(456, "Another street")));
+
+
+        Project c1 = new Project(111, "Migrate To Java 11");
+        Project c2 = new Project(222, "Convert To Scala 3");
+
+        user.setProjects(Set.of(c1, c2));
         userJpaRepository.save(user);
 
         Car car1 = new Car("Ford", "Mustang", user);

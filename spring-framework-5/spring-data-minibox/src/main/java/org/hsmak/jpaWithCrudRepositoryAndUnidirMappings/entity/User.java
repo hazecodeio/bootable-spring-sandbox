@@ -26,8 +26,17 @@ public class User {
      *  - Link: https://www.baeldung.com/hibernate-initialize-proxy-exception
      */
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)// UniDirectional
-    @JoinColumn(name = "user_id") // This map the primary key of User as a FK inn the target instead of creating a separate table for the mapping
+    @JoinColumn(name = "user_id")
+    // This map the primary key of User as a FK inn the target instead of creating a separate table for the mapping
     private Set<Address> addresses;
+
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER) // UniDirectional
+    @JoinTable(name = "user_project",
+            joinColumns = {@JoinColumn(name = "user_id")},
+            inverseJoinColumns = {@JoinColumn(name = "project_id")}
+    )
+    private Set<Project> projects;
 
     public User() {
     }
@@ -77,6 +86,14 @@ public class User {
         this.addresses = addresses;
     }
 
+    public Set<Project> getProjects() {
+        return projects;
+    }
+
+    public void setProjects(Set<Project> projects) {
+        this.projects = projects;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -85,6 +102,7 @@ public class User {
                 ", password='" + password + '\'' +
                 ", userDetails=" + userDetails +
                 ", addresses=" + addresses +
+                ", projects=" + projects +
                 '}';
     }
 }
