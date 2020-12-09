@@ -16,7 +16,7 @@
 
 package org.hsmak.data.jpa.service;
 
-import org.hsmak.data.jpa.domain.Rating;
+import org.hsmak.data.custom.domain.Rating;
 
 public interface ReviewsSummary {
 

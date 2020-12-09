@@ -24,8 +24,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
-import org.hsmak.data.jpa.domain.City;
-import org.hsmak.data.jpa.domain.HotelSummary;
+import org.hsmak.data.custom.domain.City;
+import org.hsmak.data.custom.domain.HotelSummary;
 
 @Component("cityService")
 @Transactional

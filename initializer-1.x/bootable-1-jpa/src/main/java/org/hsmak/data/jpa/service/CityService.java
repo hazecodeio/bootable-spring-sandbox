@@ -19,8 +19,8 @@ package org.hsmak.data.jpa.service;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import org.hsmak.data.jpa.domain.City;
-import org.hsmak.data.jpa.domain.HotelSummary;
+import org.hsmak.data.custom.domain.City;
+import org.hsmak.data.custom.domain.HotelSummary;
 
 public interface CityService {
 

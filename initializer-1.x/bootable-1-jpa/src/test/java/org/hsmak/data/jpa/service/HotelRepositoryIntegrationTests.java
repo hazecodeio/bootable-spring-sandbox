@@ -15,8 +15,8 @@
  */
 package org.hsmak.data.jpa.service;
 
-import org.hsmak.data.jpa.AppRunner;
-import org.hsmak.data.jpa.domain.*;
+import org.hsmak.data.custom.AppRunner;
+import org.hsmak.data.custom.domain.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

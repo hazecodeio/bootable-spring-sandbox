@@ -23,10 +23,10 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.Repository;
 
-import org.hsmak.data.jpa.domain.City;
-import org.hsmak.data.jpa.domain.Hotel;
-import org.hsmak.data.jpa.domain.HotelSummary;
-import org.hsmak.data.jpa.domain.RatingCount;
+import org.hsmak.data.custom.domain.City;
+import org.hsmak.data.custom.domain.Hotel;
+import org.hsmak.data.custom.domain.HotelSummary;
+import org.hsmak.data.custom.domain.RatingCount;
 
 interface HotelRepository extends Repository<Hotel, Long> {
 

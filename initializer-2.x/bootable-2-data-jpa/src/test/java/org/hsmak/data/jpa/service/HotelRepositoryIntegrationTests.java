@@ -16,7 +16,9 @@
 package org.hsmak.data.jpa.service;
 
 import org.hsmak.data.jpa.AppRunner;
-import org.hsmak.data.jpa.domain.*;
+import org.hsmak.data.jpa.domain.HotelSummary;
+import org.hsmak.data.jpa.domain.Rating;
+import org.hsmak.data.jpa.domain.RatingCount;
 import org.hsmak.data.jpa.entity.City;
 import org.hsmak.data.jpa.entity.Hotel;
 import org.hsmak.data.jpa.repository.CityRepository;
