@@ -47,18 +47,7 @@ public class AppRunnerWithBidirMappings {
         userJpaRepository.findAll().forEach(System.out::println);
         System.out.println();
 
-//        carJpaRepository.findAll().forEach(System.out::println);
+        carJpaRepository.findAll().forEach(System.out::println);
         System.out.println();
-
-//
-//        Course c1 = new Course(111, "111", Set.of(user));
-//        Course c2 = new Course(222, "222", Set.of(user));
-//
-//        user.setCourses(Set.of(c1, c2));
-//        userJpaRepository.save(user);
-//        carJpaRepository.findAll().forEach(System.out::println);
-        System.out.println();
-
-
     }
 }

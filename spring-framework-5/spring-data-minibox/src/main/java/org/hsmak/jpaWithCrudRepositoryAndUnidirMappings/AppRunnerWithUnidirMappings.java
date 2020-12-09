@@ -40,6 +40,5 @@ public class AppRunnerWithUnidirMappings {
 
         carJpaRepository.findAll().forEach(System.out::println);
         System.out.println();
-
     }
 }
