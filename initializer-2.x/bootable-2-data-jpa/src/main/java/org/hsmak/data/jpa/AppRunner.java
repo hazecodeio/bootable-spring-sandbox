@@ -18,12 +18,14 @@ package org.hsmak.data.jpa;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
-@ComponentScan
-@EnableAutoConfiguration
+//@Configuration
+//@ComponentScan
+//@EnableAutoConfiguration
+@SpringBootApplication // this will include the above
 public class AppRunner {
 	public static void main(String[] args) throws Exception {
 		SpringApplication.run(AppRunner.class, args);

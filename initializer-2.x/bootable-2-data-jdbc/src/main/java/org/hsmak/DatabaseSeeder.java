@@ -1,16 +1,17 @@
 package org.hsmak;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
-import ch.qos.logback.classic.Logger;
 
 @Component
 public class DatabaseSeeder {
 
-    private static final Logger LOGGER = (Logger) LoggerFactory.getLogger(DatabaseSeeder.class);
+    private static final Logger LOGGER = LogManager.getLogger(DatabaseSeeder.class);
 
     @Autowired
     private JdbcTemplate jdbcTemplate;

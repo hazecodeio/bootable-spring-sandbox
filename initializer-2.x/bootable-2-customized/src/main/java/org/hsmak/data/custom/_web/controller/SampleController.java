@@ -14,24 +14,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.hsmak.data.custom.controller;
+package org.hsmak.data.custom._web.controller;
 
 import org.hsmak.data.custom.service.CityServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 public class SampleController {
 
     @Autowired
     private CityServiceImpl cityService;
 
     @RequestMapping("/")
-    @ResponseBody
-    @Transactional(readOnly = true)
     public String helloWorld() {
         return this.cityService.getCity("Bath", "UK").getName();
     }

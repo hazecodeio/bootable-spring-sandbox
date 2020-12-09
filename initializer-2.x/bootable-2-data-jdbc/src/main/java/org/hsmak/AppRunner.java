@@ -1,22 +1,20 @@
 package org.hsmak;
 
-import java.util.Optional;
-
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.hsmak.entity.Person;
+import org.hsmak.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import org.hsmak.entity.Person;
-import org.hsmak.repository.PersonRepository;
-
-import ch.qos.logback.classic.Logger;
+import java.util.Optional;
 
 @SpringBootApplication
 public class AppRunner implements CommandLineRunner {
 
-    private static final Logger LOGGER = (Logger) LoggerFactory.getLogger(AppRunner.class);
+    private static final Logger LOGGER = LogManager.getLogger(AppRunner.class);
 
     @Autowired
     private PersonRepository repository;
@@ -34,7 +32,7 @@ public class AppRunner implements CommandLineRunner {
         dbSeeder.insertData();
         LOGGER.info("@@ findAll() call...");
         repository.findAll()
-            .forEach(person -> LOGGER.info(person.toString()));
+                .forEach(person -> LOGGER.info(person.toString()));
         LOGGER.info("@@ findById() call...");
         Optional<Person> optionalPerson = repository.findById(1L);
         optionalPerson.ifPresent(person -> LOGGER.info(person.toString()));
@@ -46,14 +44,14 @@ public class AppRunner implements CommandLineRunner {
         optionalPerson.ifPresent(person -> repository.delete(person));
         LOGGER.info("@@ findAll() call...");
         repository.findAll()
-            .forEach(person -> LOGGER.info(person.toString()));
+                .forEach(person -> LOGGER.info(person.toString()));
         LOGGER.info("@@ findByFirstName() call...");
         repository.findByFirstName("Franz")
-            .forEach(person -> LOGGER.info(person.toString()));
+                .forEach(person -> LOGGER.info(person.toString()));
         LOGGER.info("@@ findByFirstName() call...");
         repository.updateByFirstName(2L, "Date Inferno");
         repository.findAll()
-            .forEach(person -> LOGGER.info(person.toString()));
+                .forEach(person -> LOGGER.info(person.toString()));
 
     }
 }

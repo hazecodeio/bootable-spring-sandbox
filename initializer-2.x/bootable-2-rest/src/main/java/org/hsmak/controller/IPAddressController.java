@@ -13,21 +13,22 @@
  *  implied.  See the License for the specific language governing
  *  permissions and limitations under the License.
  */
-package org.hsmak;
+package org.hsmak.controller;
 
-import org.springframework.beans.factory.annotation.Value;
+import java.net.InetAddress;
+
+import org.hsmak.domain.IPAddress;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class HomeController {
+public class IPAddressController {
 
-    @Value("${welcome}")
-    private String welcome;
+    private int counter;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String ipaddress() throws Exception {
-        return "Reply: " + welcome;
+    @RequestMapping(value = "/ip", method = RequestMethod.GET)
+    public IPAddress ipaddress() throws Exception {
+        return new IPAddress(++counter, InetAddress.getLocalHost().getHostAddress());
     }
 }
