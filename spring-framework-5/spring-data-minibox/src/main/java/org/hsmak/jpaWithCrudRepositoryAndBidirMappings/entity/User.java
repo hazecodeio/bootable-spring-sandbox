@@ -28,6 +28,13 @@ public class User {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user", fetch = FetchType.EAGER)
     private Set<Car> cars;
 
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name = "user_project",
+            joinColumns = { @JoinColumn(name = "user_id") },
+            inverseJoinColumns = { @JoinColumn(name = "project_id") }
+    )
+    private Set<Project> projects;
+
     public User() {
     }
 
@@ -92,6 +99,14 @@ public class User {
         this.cars = cars;
     }
 
+    public Set<Project> getProjects() {
+        return projects;
+    }
+
+    public void setProjects(Set<Project> projects) {
+        this.projects = projects;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -101,6 +116,7 @@ public class User {
                 ", userDetails=" + userDetails +
                 ", addresses=" + addresses +
                 ", cars=" + cars +
+                ", projects=" + projects +
                 '}';
     }
 }

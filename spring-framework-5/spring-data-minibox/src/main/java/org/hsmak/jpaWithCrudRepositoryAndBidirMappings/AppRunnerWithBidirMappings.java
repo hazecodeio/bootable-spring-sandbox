@@ -1,10 +1,7 @@
 package org.hsmak.jpaWithCrudRepositoryAndBidirMappings;
 
 import org.hsmak.jpaWithCrudRepositoryAndBidirMappings.config.AppConfig;
-import org.hsmak.jpaWithCrudRepositoryAndBidirMappings.entity.Address;
-import org.hsmak.jpaWithCrudRepositoryAndBidirMappings.entity.Car;
-import org.hsmak.jpaWithCrudRepositoryAndBidirMappings.entity.User;
-import org.hsmak.jpaWithCrudRepositoryAndBidirMappings.entity.UserDetails;
+import org.hsmak.jpaWithCrudRepositoryAndBidirMappings.entity.*;
 import org.hsmak.jpaWithCrudRepositoryAndBidirMappings.repository.CarJpaRepository;
 import org.hsmak.jpaWithCrudRepositoryAndBidirMappings.repository.UserJpaRepository;
 import org.springframework.context.ApplicationContext;
@@ -31,6 +28,13 @@ public class AppRunnerWithBidirMappings {
         Car car1 = new Car("Ford", "Mustang", user);
         Car car2 = new Car("Ford2", "Mustang2", user);
         user.setCars(Set.of(car1, car2));
+
+
+        Project c1 = new Project(111, "Migrate To Java 11", Set.of(user));
+        Project c2 = new Project(222, "Convert To Scala 3", Set.of(user));
+
+        user.setProjects(Set.of(c1, c2));
+
         userJpaRepository.save(user);
 
         // The Bidirectionality allows to do the following as well without having duplicates for the  same user
@@ -43,8 +47,18 @@ public class AppRunnerWithBidirMappings {
         userJpaRepository.findAll().forEach(System.out::println);
         System.out.println();
 
-        carJpaRepository.findAll().forEach(System.out::println);
+//        carJpaRepository.findAll().forEach(System.out::println);
         System.out.println();
+
+//
+//        Course c1 = new Course(111, "111", Set.of(user));
+//        Course c2 = new Course(222, "222", Set.of(user));
+//
+//        user.setCourses(Set.of(c1, c2));
+//        userJpaRepository.save(user);
+//        carJpaRepository.findAll().forEach(System.out::println);
+        System.out.println();
+
 
     }
 }
