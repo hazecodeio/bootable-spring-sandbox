@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.hsmak</groupId>
-    <artifactId>bootable-2-mvc</artifactId>
+    <artifactId>bootable-2-rest</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <parent>

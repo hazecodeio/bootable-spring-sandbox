@@ -18,9 +18,9 @@
     <name>${project.artifactId}</name>
 
     <modules>
-        <module>bootable-2-jpa</module>
-        <module>bootable-2-mvc</module>
+        <module>bootable-2-rest</module>
         <module>bootable-2-data-jdbc</module>
+        <module>bootable-2-data-jpa</module>
     </modules>
 
     <properties>
