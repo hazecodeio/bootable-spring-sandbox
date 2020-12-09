@@ -20,6 +20,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.hsmak.data.jpa.repository.HotelRepository;
+import org.hsmak.data.jpa.repository.ReviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -27,11 +29,11 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
-import org.hsmak.data.jpa.domain.City;
-import org.hsmak.data.jpa.domain.Hotel;
+import org.hsmak.data.jpa.entity.City;
+import org.hsmak.data.jpa.entity.Hotel;
 import org.hsmak.data.jpa.domain.Rating;
 import org.hsmak.data.jpa.domain.RatingCount;
-import org.hsmak.data.jpa.domain.Review;
+import org.hsmak.data.jpa.entity.Review;
 import org.hsmak.data.jpa.domain.ReviewDetails;
 
 @Component("hotelService")

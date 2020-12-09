@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.hsmak.data.jpa.service;
+package org.hsmak.data.jpa.repository;
 
 import java.util.List;
 
@@ -23,12 +23,12 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.Repository;
 
-import org.hsmak.data.jpa.domain.City;
-import org.hsmak.data.jpa.domain.Hotel;
+import org.hsmak.data.jpa.entity.City;
+import org.hsmak.data.jpa.entity.Hotel;
 import org.hsmak.data.jpa.domain.HotelSummary;
 import org.hsmak.data.jpa.domain.RatingCount;
 
-interface HotelRepository extends Repository<Hotel, Long> {
+public interface HotelRepository extends Repository<Hotel, Long> {
 
 	Hotel findByCityAndName(City city, String name);
 

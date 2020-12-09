@@ -1,3 +1,4 @@
+
 /*
  * Copyright 2012-2013 the original author or authors.
  *
@@ -13,27 +14,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package org.hsmak.data.jpa.web;
 
+import org.hsmak.data.jpa.service.CityServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import org.hsmak.data.jpa.service.CityService;
-
 @Controller
 public class SampleController {
 
-	@Autowired
-	private CityService cityService;
+    @Autowired
+    private CityServiceImpl cityService;
 
-	@RequestMapping("/")
-	@ResponseBody
-	@Transactional(readOnly = true)
-	public String helloWorld() {
-		return this.cityService.getCity("Bath", "UK").getName();
-	}
+    @RequestMapping("/")
+    @ResponseBody
+    @Transactional(readOnly = true)
+    public String helloWorld() {
+        return this.cityService.getCity("Bath", "UK").getName();
+    }
 }

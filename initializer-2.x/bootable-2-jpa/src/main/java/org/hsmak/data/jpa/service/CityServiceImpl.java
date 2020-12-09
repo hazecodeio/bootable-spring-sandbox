@@ -16,6 +16,10 @@
 
 package org.hsmak.data.jpa.service;
 
+import org.hsmak.data.jpa.domain.HotelSummary;
+import org.hsmak.data.jpa.entity.City;
+import org.hsmak.data.jpa.repository.CityRepository;
+import org.hsmak.data.jpa.repository.HotelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -24,56 +28,43 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
-import org.hsmak.data.jpa.domain.City;
-import org.hsmak.data.jpa.domain.HotelSummary;
-
 @Component("cityService")
 @Transactional
-class CityServiceImpl implements CityService {
+public class CityServiceImpl{
 
-	private final CityRepository cityRepository;
+    private final CityRepository cityRepository;
 
-	private final HotelRepository hotelRepository;
+    private final HotelRepository hotelRepository;
 
-	@Autowired
-	public CityServiceImpl(CityRepository cityRepository, HotelRepository hotelRepository) {
-		this.cityRepository = cityRepository;
-		this.hotelRepository = hotelRepository;
-	}
+    @Autowired
+    public CityServiceImpl(CityRepository cityRepository, HotelRepository hotelRepository) {
+        this.cityRepository = cityRepository;
+        this.hotelRepository = hotelRepository;
+    }
 
-	@Override
-	public Page<City> findCities(CitySearchCriteria criteria, Pageable pageable) {
+    public Page<City> findCities(String name, Pageable pageable) {
 
-		Assert.notNull(criteria, "Criteria must not be null");
-		String name = criteria.getName();
+        String country = "";
+        int splitPos = name.lastIndexOf(",");
 
-		if (!StringUtils.hasLength(name)) {
-			return this.cityRepository.findAll(null);
-		}
+        if (splitPos >= 0) {
+            country = name.substring(splitPos + 1);
+            name = name.substring(0, splitPos);
+        }
 
-		String country = "";
-		int splitPos = name.lastIndexOf(",");
+        return this.cityRepository
+                .findByNameContainingAndCountryContainingAllIgnoringCase(name.trim(),
+                        country.trim(), pageable);
+    }
 
-		if (splitPos >= 0) {
-			country = name.substring(splitPos + 1);
-			name = name.substring(0, splitPos);
-		}
+    public City getCity(String name, String country) {
+        Assert.notNull(name, "Name must not be null");
+        Assert.notNull(country, "Country must not be null");
+        return this.cityRepository.findByNameAndCountryAllIgnoringCase(name, country);
+    }
 
-		return this.cityRepository
-				.findByNameContainingAndCountryContainingAllIgnoringCase(name.trim(),
-						country.trim(), pageable);
-	}
-
-	@Override
-	public City getCity(String name, String country) {
-		Assert.notNull(name, "Name must not be null");
-		Assert.notNull(country, "Country must not be null");
-		return this.cityRepository.findByNameAndCountryAllIgnoringCase(name, country);
-	}
-
-	@Override
-	public Page<HotelSummary> getHotels(City city, Pageable pageable) {
-		Assert.notNull(city, "City must not be null");
-		return this.hotelRepository.findByCity(city, pageable);
-	}
+    public Page<HotelSummary> getHotels(City city, Pageable pageable) {
+        Assert.notNull(city, "City must not be null");
+        return this.hotelRepository.findByCity(city, pageable);
+    }
 }

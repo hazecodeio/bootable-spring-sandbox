@@ -16,6 +16,8 @@
 
 package org.hsmak.data.jpa.domain;
 
+import org.hsmak.data.jpa.entity.City;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.MathContext;

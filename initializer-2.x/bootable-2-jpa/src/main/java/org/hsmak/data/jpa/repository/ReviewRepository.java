@@ -14,21 +14,22 @@
  * limitations under the License.
  */
 
-package org.hsmak.data.jpa.service;
+package org.hsmak.data.jpa.repository;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.Repository;
 
-import org.hsmak.data.jpa.domain.City;
+import org.hsmak.data.jpa.entity.Hotel;
+import org.hsmak.data.jpa.entity.Review;
 
-interface CityRepository extends Repository<City, Long> {
+public interface ReviewRepository extends JpaRepository<Review, Long> {
 
-	Page<City> findAll(Pageable pageable);
+	Page<Review> findByHotel(Hotel hotel, Pageable pageable);
 
-	Page<City> findByNameContainingAndCountryContainingAllIgnoringCase(String name,
-			String country, Pageable pageable);
+	Review findByHotelAndIndex(Hotel hotel, int index);
 
-	City findByNameAndCountryAllIgnoringCase(String name, String country);
+	Review save(Review review);
 
 }

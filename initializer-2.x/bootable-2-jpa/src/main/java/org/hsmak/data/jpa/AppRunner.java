@@ -25,9 +25,7 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan
 @EnableAutoConfiguration
 public class AppRunner {
-
 	public static void main(String[] args) throws Exception {
 		SpringApplication.run(AppRunner.class, args);
 	}
-
 }

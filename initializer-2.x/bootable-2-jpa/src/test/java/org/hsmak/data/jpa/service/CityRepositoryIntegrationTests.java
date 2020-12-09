@@ -16,7 +16,8 @@
 package org.hsmak.data.jpa.service;
 
 import org.hsmak.data.jpa.AppRunner;
-import org.hsmak.data.jpa.domain.City;
+import org.hsmak.data.jpa.entity.City;
+import org.hsmak.data.jpa.repository.CityRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

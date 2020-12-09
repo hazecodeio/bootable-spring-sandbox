@@ -17,6 +17,10 @@ package org.hsmak.data.jpa.service;
 
 import org.hsmak.data.jpa.AppRunner;
 import org.hsmak.data.jpa.domain.*;
+import org.hsmak.data.jpa.entity.City;
+import org.hsmak.data.jpa.entity.Hotel;
+import org.hsmak.data.jpa.repository.CityRepository;
+import org.hsmak.data.jpa.repository.HotelRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +47,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class HotelRepositoryIntegrationTests {
 
 	@Autowired
-	CityRepository cityRepository;
+    CityRepository cityRepository;
 	@Autowired
 	HotelRepository repository;
 

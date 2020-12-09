@@ -14,13 +14,16 @@
  * limitations under the License.
  */
 
-package org.hsmak.data.jpa.domain;
+package org.hsmak.data.jpa.entity;
 
 import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.*;
 
+import org.hsmak.data.jpa.domain.Rating;
+import org.hsmak.data.jpa.domain.ReviewDetails;
+import org.hsmak.data.jpa.domain.TripType;
 import org.springframework.util.Assert;
 
 @Entity

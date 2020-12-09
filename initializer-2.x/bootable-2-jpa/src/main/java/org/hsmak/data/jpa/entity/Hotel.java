@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.hsmak.data.jpa.domain;
+package org.hsmak.data.jpa.entity;
 
 import java.io.Serializable;
 import java.util.Set;
@@ -22,6 +22,8 @@ import java.util.Set;
 import javax.persistence.*;
 
 import org.hibernate.annotations.NaturalId;
+import org.hsmak.data.jpa.entity.City;
+import org.hsmak.data.jpa.entity.Review;
 
 @Entity
 public class Hotel implements Serializable {

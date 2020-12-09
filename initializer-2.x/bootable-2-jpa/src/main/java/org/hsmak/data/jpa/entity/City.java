@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.hsmak.data.jpa.domain;
+package org.hsmak.data.jpa.entity;
 
 import java.io.Serializable;
 
