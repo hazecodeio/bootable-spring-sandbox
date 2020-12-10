@@ -5,8 +5,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
+/*
+ * SpringBootServletInitializer:
+ *      - Link: https://www.baeldung.com/spring-boot-war-tomcat-deploy
+ *      - Build as a WAR
+ *      - Deploy to Tomcat Server
+ */
+
 //@SpringBootApplication(exclude = DispatcherServletAutoConfiguration.class)
-@SpringBootApplication
+@SpringBootApplication()
 //@Import({RestServletsConfig.class, MvcServletsConfig.class})
 public class DispServAppRunner extends SpringBootServletInitializer {
 
