@@ -21,7 +21,7 @@
         <module>bootable-2-rest</module>
         <module>bootable-2-data-jdbc</module>
         <module>bootable-2-data-jpa</module>
-        <module>bootable-2-customized</module>
+<!--        <module>bootable-2-customized</module>-->
     </modules>
 
     <properties>
@@ -90,6 +90,7 @@
     </dependencies>
 
     <build>
+        <finalName>${project.artifactId}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
