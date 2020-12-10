@@ -8,5 +8,5 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @Configuration
 @ComponentScan
 @EnableWebMvc
-public class MvcConfig {
+public class _MvcConfig {
 }

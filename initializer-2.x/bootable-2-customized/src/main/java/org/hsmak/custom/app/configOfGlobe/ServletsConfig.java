@@ -1,7 +1,7 @@
 package org.hsmak.custom.app.configOfGlobe;
 
-import org.hsmak.custom.webOfMvc.MvcConfig;
-import org.hsmak.custom.webOfRest.RestConfig;
+import org.hsmak.custom.webOfMvc._MvcConfig;
+import org.hsmak.custom.webOfRest._RestConfig;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,7 +20,7 @@ public class ServletsConfig {
         xmlWebAppCxt.setConfigLocation("classpath:/mvc-dispatcher-servlet.xml");*/
 
         AnnotationConfigWebApplicationContext applicationContext = new AnnotationConfigWebApplicationContext();
-        applicationContext.register(RestConfig.class); // Set config specific to this DispatcherServlet
+        applicationContext.register(_RestConfig.class); // Set config specific to this DispatcherServlet
         dispatcherServlet.setApplicationContext(applicationContext);
 
         ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean(dispatcherServlet, "/rest/*");
@@ -39,7 +39,7 @@ public class ServletsConfig {
         xmlWebAppCxt.setConfigLocation("classpath:/mvc-dispatcher-servlet.xml");*/
 
         AnnotationConfigWebApplicationContext applicationContext = new AnnotationConfigWebApplicationContext();
-        applicationContext.register(MvcConfig.class);
+        applicationContext.register(_MvcConfig.class);
         dispatcherServlet.setApplicationContext(applicationContext);
 
         ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean(dispatcherServlet, "/mvc/*");
