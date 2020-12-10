@@ -1,4 +1,4 @@
-package org.hsmak.custom.app.configOfGlobe;
+package org.hsmak.custom._configOfGlobe;
 
 import org.hsmak.custom.webOfMvc._MvcConfig;
 import org.hsmak.custom.webOfRest._RestConfig;
@@ -13,8 +13,6 @@ public class ServletsConfig {
     @Bean
     public ServletRegistrationBean restServlet() {
         DispatcherServlet dispatcherServlet = new DispatcherServlet();
-        dispatcherServlet.setThreadContextInheritable(true);
-        dispatcherServlet.setThrowExceptionIfNoHandlerFound(true);
 
         /*XmlWebApplicationContext xmlWebAppCxt = new XmlWebApplicationContext();
         xmlWebAppCxt.setConfigLocation("classpath:/mvc-dispatcher-servlet.xml");*/
@@ -25,15 +23,14 @@ public class ServletsConfig {
 
         ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean(dispatcherServlet, "/rest/*");
         servletRegistrationBean.setName("restServlet");
-        servletRegistrationBean.setLoadOnStartup(2);
+        servletRegistrationBean.setLoadOnStartup(1);
+
         return servletRegistrationBean;
     }
 
     @Bean
     public ServletRegistrationBean mvcServlet() {
         DispatcherServlet dispatcherServlet = new DispatcherServlet();
-        dispatcherServlet.setThreadContextInheritable(true);
-        dispatcherServlet.setThrowExceptionIfNoHandlerFound(true);
 
         /*XmlWebApplicationContext xmlWebAppCxt = new XmlWebApplicationContext();
         xmlWebAppCxt.setConfigLocation("classpath:/mvc-dispatcher-servlet.xml");*/
@@ -44,7 +41,8 @@ public class ServletsConfig {
 
         ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean(dispatcherServlet, "/mvc/*");
         servletRegistrationBean.setName("mvcServlet");
-        servletRegistrationBean.setLoadOnStartup(1);
+        servletRegistrationBean.setLoadOnStartup(2);
+
         return servletRegistrationBean;
     }
 }

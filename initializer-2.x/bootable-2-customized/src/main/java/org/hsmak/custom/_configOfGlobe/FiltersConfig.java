@@ -1,5 +1,7 @@
-package org.hsmak.custom.app.configOfGlobe;
+package org.hsmak.custom._configOfGlobe;
 
+import org.hsmak.custom._webOfGlobe.MvcFilter;
+import org.hsmak.custom._webOfGlobe.RestFilter;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

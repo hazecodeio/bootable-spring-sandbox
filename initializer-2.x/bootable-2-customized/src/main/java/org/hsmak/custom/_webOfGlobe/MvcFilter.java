@@ -1,4 +1,4 @@
-package org.hsmak.custom.app.configOfGlobe;
+package org.hsmak.custom._webOfGlobe;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

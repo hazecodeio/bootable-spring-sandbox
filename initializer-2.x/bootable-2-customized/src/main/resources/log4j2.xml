@@ -30,7 +30,7 @@
             <AppenderRef ref="Console"/>
         </Logger>
 
-        <Logger name="org.springframework" additivity="false" level="INFO">
+        <Logger name="org.springframework" additivity="false" level="DEBUG">
             <AppenderRef ref="appLog"/>
             <AppenderRef ref="Console"/>
         </Logger>
