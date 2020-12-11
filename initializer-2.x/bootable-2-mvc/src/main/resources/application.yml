@@ -1,0 +1,5 @@
+spring.thymeleaf.prefix: classpath:/templates/
+spring.thymeleaf.postfix: .html
+spring.thymeleaf.cache: false
+
+welcomeMessage: Welcome to Spring Boot MVC!
