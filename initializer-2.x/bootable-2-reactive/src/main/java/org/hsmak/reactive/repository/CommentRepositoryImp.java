@@ -17,18 +17,24 @@ public class CommentRepositoryImp implements CommentRepository {
 
     @Override
     public Flux<Comment> findAll() {
+
         //simulate data streaming every 1 second.
+
+//        return Flux.interval(Duration.ofSeconds(1))
+//                .onBackpressureDrop()
+//                .flatMapIterable(tick -> List.of(generateComment())); // Use map() instead
+
         return Flux.interval(Duration.ofSeconds(1))
                 .onBackpressureDrop()
-                .flatMapIterable(x -> generateComment());
+                .map(tick -> generateComment());
     }
 
-    private List<Comment> generateComment() {
+    private Comment generateComment() {
         Comment comment = new Comment(
                 randomAuthor(),
                 randomMessage(),
                 getCurrentTimeStamp());
-        return List.of(comment);
+        return comment;
     }
 }
 
