@@ -10,8 +10,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Random;
 
-import static org.hsmak.reactive.repository.CommentGenerator.*;
-
 @Repository
 public class ReactiveCommentRepository implements CommentRepository {
 
