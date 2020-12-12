@@ -12,18 +12,19 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.4.0</version>
+        <version>2.4.1</version>
     </parent>
 
     <name>${project.artifactId}</name>
 
-    <modules>
+    <!--<modules>
         <module>bootable-2-rest</module>
         <module>bootable-2-data-jdbc</module>
         <module>bootable-2-data-jpa</module>
         <module>bootable-2-customized</module>
         <module>bootable-2-mvc</module>
-    </modules>
+        <module>bootable-2-reactive</module>
+    </modules>-->
 
     <properties>
         <!--common-->
