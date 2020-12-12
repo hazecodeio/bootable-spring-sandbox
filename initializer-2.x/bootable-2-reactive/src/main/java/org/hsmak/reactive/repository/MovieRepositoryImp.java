@@ -8,7 +8,7 @@ import java.time.Duration;
 import java.util.List;
 
 @Repository
-public class ReactiveMovieRepository implements MovieRepository {
+public class MovieRepositoryImp implements MovieRepository {
 
     private final List<Movie> movies = List.of(
             new Movie("Polar (2019)", 64),
