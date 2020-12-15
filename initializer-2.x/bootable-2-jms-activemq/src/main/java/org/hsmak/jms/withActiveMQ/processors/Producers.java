@@ -1,5 +1,6 @@
 package org.hsmak.jms.withActiveMQ.processors;
 
+import org.apache.activemq.command.ActiveMQQueue;
 import org.apache.activemq.command.ActiveMQTopic;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -11,29 +12,31 @@ import org.springframework.stereotype.Component;
 @Component
 public class Producers {
 
+    private static Logger logger = LogManager.getLogger(Producers.class);
     @Autowired
     JmsTemplate jmsTemplateOnQueue;
-
     @Autowired
     JmsTemplate jmsTemplateOnTopic;
-
-    private static Logger logger = LogManager.getLogger(Producers.class);
 
     public void send(Email email) {
 
         logger.info("Sending an email message.");
 
         // Though JmsTemplate has the Destination already set by default, it can be overridden here!
-        jmsTemplateOnQueue.convertAndSend("queue/mailbox",
-                new Email("info@example.com", "Hello"));
+        jmsTemplateOnQueue.convertAndSend(
+                new ActiveMQQueue("queue/mailbox"),
+//                "queue/mailbox", // Defaulting to Queue
+                email);
     }
 
     public void publish(Email email) {
 
-        logger.info("Publishing an email message to all subsrcibers.");
+        logger.info("Publishing an email message to all subscribers.");
 
         // Though JmsTemplate has the Destination already set by default, it can be overridden here!
-        jmsTemplateOnTopic.convertAndSend(new ActiveMQTopic("topic/mailbox"),
-                new Email("publish@HHHHHH.com", "Overwhelmed!!!"));
+        jmsTemplateOnTopic.convertAndSend(
+                new ActiveMQTopic("topic/mailbox"),
+//                "topic/mailbox", // Passing a plain String doesn't work with Topics since the default is a Queue
+                email);
     }
 }

@@ -24,8 +24,8 @@
         <module>bootable-2-customized</module>
         <module>bootable-2-mvc</module>
         <module>bootable-2-reactive</module>
+        <modle>bootable-2-jms-activemq</modle>
     </modules>-->
-
     <properties>
         <!--common-->
         <maven.compiler.source>11</maven.compiler.source>

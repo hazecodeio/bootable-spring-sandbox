@@ -3,7 +3,6 @@ package org.hsmak.jms.withActiveMQ;
 import org.hsmak.jms.withActiveMQ.domain.Email;
 import org.hsmak.jms.withActiveMQ.processors.Producers;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,10 +11,6 @@ import org.springframework.jms.annotation.EnableJms;
 @EnableJms
 @SpringBootApplication
 public class JmsWithActiveMQRunner implements CommandLineRunner {
-
-
-    @Value("${activemq.broker.url}")
-    String brokerUrl;
 
     @Autowired
     Producers producers;
@@ -30,6 +25,6 @@ public class JmsWithActiveMQRunner implements CommandLineRunner {
         // Send a message with a POJO - the template reuse the message converter
         System.out.println("Calling Sender to send an email message.");
         producers.send(new Email("info@example.com", "Hello"));
-        producers.publish(new Email("publish@HHHHHH.com", "Overwhelmed!!!"));
+        producers.publish(new Email("publish@HHHHHH.com", "Has been broadcast!!!"));
     }
 }

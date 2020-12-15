@@ -1,6 +1,8 @@
 package org.hsmak.jms.withActiveMQ.config;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
+import org.apache.activemq.command.ActiveMQQueue;
+import org.apache.activemq.command.ActiveMQTopic;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -32,7 +34,6 @@ public class JmsConfig {
         DefaultJmsListenerContainerFactory factory = new DefaultJmsListenerContainerFactory();
         factory.setConnectionFactory(connectionFactoryOnQueue());
         factory.setMessageConverter(jacksonJmsMessageConverter());
-//        factory.setPubSubDomain(true);
         return factory;
     }
 
@@ -41,7 +42,7 @@ public class JmsConfig {
         DefaultJmsListenerContainerFactory factory = new DefaultJmsListenerContainerFactory();
         factory.setConnectionFactory(connectionFactoryOnQueue());
         factory.setMessageConverter(jacksonJmsMessageConverter());
-        factory.setPubSubDomain(true);
+        factory.setPubSubDomain(true); // Change to Topic/pub-sub instead of Queue/Point-To-Point
         return factory;
     }
 
@@ -59,6 +60,7 @@ public class JmsConfig {
         JmsTemplate template = new JmsTemplate();
         template.setConnectionFactory(connectionFactoryOnQueue());
         template.setDefaultDestinationName("queue/mailbox");
+        template.setDefaultDestination(new ActiveMQQueue("queue/mailbox"));
         template.setMessageConverter(jacksonJmsMessageConverter());
         return template;
     }
@@ -68,7 +70,7 @@ public class JmsConfig {
         JmsTemplate template = new JmsTemplate();
         template.setConnectionFactory(connectionFactoryOnQueue());
         template.setDefaultDestinationName("topic/mailbox");
-        template.setPubSubDomain(true);
+        template.setDefaultDestination(new ActiveMQTopic("topic/mailbox"));
         template.setMessageConverter(jacksonJmsMessageConverter());
         return template;
     }
