@@ -1,4 +1,4 @@
-package org.hsmak.kafka.config;
+package org.hsmak.messaging.withKafkaSimple.config;
 
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;

@@ -1,14 +1,19 @@
-package org.hsmak.kafka.processors;
+package org.hsmak.messaging.withKafkaSimple.processors;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
+/*
+ *  Observations:
+ *      - Listeners of different groupId will receive a duplicate message/record from the topic; more of broadcasting
+ *      - Listeners of the same groupId will receive a unique message/record
+ */
 @Component
 public class KafkaListeners {
 
-    private static Logger logger = LogManager.getLogger(KafkaListeners.class);
+    private static final Logger logger = LogManager.getLogger(KafkaListeners.class);
 
     @KafkaListener(
             topics = "MyTopic",
