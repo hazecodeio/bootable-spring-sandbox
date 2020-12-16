@@ -39,16 +39,18 @@ public class JmsConfig {
         DefaultJmsListenerContainerFactory listenerContainerFactory = new DefaultJmsListenerContainerFactory();
         listenerContainerFactory.setConnectionFactory(connectionFactory());
         listenerContainerFactory.setMessageConverter(jacksonJmsMessageConverter());
+
         return listenerContainerFactory;
     }
 
     @Bean
     public DefaultJmsListenerContainerFactory jmsListenerContainerFactoryOnTopic() {
-        DefaultJmsListenerContainerFactory factory = new DefaultJmsListenerContainerFactory();
-        factory.setConnectionFactory(connectionFactory());
-        factory.setMessageConverter(jacksonJmsMessageConverter());
-        factory.setPubSubDomain(true); // Change to Topic/pub-sub instead of Queue/Point-To-Point
-        return factory;
+        DefaultJmsListenerContainerFactory listenerContainerFactory = new DefaultJmsListenerContainerFactory();
+        listenerContainerFactory.setConnectionFactory(connectionFactory());
+        listenerContainerFactory.setMessageConverter(jacksonJmsMessageConverter());
+        listenerContainerFactory.setPubSubDomain(true); // Change to Topic/pub-sub instead of Queue/Point-To-Point
+
+        return listenerContainerFactory;
     }
 
     //######################### MessageConverters ###########################//
