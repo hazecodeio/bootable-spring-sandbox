@@ -25,6 +25,7 @@
         <module>bootable-2-mvc</module>
         <module>bootable-2-reactive</module>
         <modle>bootable-2-jms-activemq</modle>
+        <module>bootable-2-kafka</module>
     </modules>-->
     <properties>
         <!--common-->

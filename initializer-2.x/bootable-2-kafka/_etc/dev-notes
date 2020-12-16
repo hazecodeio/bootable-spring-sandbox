@@ -1,0 +1,4 @@
+* Download Kafka
+* Start Zookeepr:   -> $KAFKA_HOME/bin/zookeeper-server-start.sh config/zookeeper.properties &
+* Start Kafka:      -> $KAFKA_HOME/bin/kafka-server-start.sh config/server.properties
+* Run SpringApp
