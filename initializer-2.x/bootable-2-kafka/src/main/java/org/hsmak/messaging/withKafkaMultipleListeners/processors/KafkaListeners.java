@@ -16,6 +16,8 @@ public class KafkaListeners {
 
     private static final Logger logger = LogManager.getLogger(KafkaListeners.class);
 
+    //############################ Listeners of String Messages #######################//
+
     @KafkaListener(
             topics = "${general.string.topic.name}",
             groupId = "${general.string.topic.group.id}",
@@ -24,11 +26,21 @@ public class KafkaListeners {
         logger.info(String.format("String Message Received -> %s", message));
     }
 
+    //############################ Listeners of JsonUser Messages #######################//
+
     @KafkaListener(
             topics = "${json.user.topic.name}",
             groupId = "${json.user.topic.group.id}",
             containerFactory = "kafkaListenerContainerFactoryOfUser")
-    public void consumeJsonUser(User user) {
-        logger.info(String.format("Json User Received -> %s", user));
+    public void listenerOnJsonUser1(User user) {
+        logger.info(String.format("Json1 User Received -> %s", user));
+    }
+
+    @KafkaListener(
+            topics = "${json.user.topic.name}",
+            groupId = "${json.user.topic.group.id}",
+            containerFactory = "kafkaListenerContainerFactoryOfUser")
+    public void listenerOnJsonUser2(User user) {
+        logger.info(String.format("Json2 User Received -> %s", user));
     }
 }

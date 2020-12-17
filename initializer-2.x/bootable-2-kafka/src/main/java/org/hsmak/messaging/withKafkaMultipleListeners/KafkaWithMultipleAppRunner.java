@@ -26,6 +26,6 @@ public class KafkaWithMultipleAppRunner implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         kafkaProducers.sendMessage("This is a String Msg");
-        IntStream.range(0, 1).forEach(i -> kafkaProducers.sendUser(new User(UUID.randomUUID().getLeastSignificantBits(), "James", "Baldwin")));
+        IntStream.range(0, 100).forEach(i -> kafkaProducers.sendUser(new User(UUID.randomUUID().getLeastSignificantBits(), "James", "Baldwin")));
     }
 }

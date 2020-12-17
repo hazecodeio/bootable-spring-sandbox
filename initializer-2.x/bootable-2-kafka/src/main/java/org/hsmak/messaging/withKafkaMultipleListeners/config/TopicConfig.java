@@ -27,7 +27,7 @@ public class TopicConfig {
     public NewTopic userTopic() {
         return TopicBuilder
                 .name(userTopicName)
-                .partitions(1)
+                .partitions(4) // 4 partitions owned by 2 Listeners
                 .replicas(1)
                 .build();
     }
