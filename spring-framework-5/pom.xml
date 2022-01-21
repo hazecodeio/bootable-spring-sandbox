@@ -43,7 +43,7 @@
         <!--db-related-->
         <hibernate.version>5.4.25.Final</hibernate.version>
         <hsqldb.version>2.5.1</hsqldb.version>
-        <h2.version>1.4.200</h2.version>
+        <h2.version>2.1.210</h2.version>
 
         <!--format-related-->
         <jackson.version>2.12.0</jackson.version>
