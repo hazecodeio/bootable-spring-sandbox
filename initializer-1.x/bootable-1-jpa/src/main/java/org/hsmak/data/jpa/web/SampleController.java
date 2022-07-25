@@ -22,7 +22,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import org.hsmak.data.custom.service.CityService;
+import org.hsmak.data.jpa.service.CityService;
 
 @Controller
 public class SampleController {

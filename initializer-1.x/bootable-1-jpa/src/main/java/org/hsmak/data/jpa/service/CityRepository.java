@@ -20,7 +20,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.Repository;
 
-import org.hsmak.data.custom.domain.City;
+import org.hsmak.data.jpa.domain.City;
 
 interface CityRepository extends Repository<City, Long> {
 

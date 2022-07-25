@@ -27,12 +27,12 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
-import org.hsmak.data.custom.domain.City;
-import org.hsmak.data.custom.domain.Hotel;
-import org.hsmak.data.custom.domain.Rating;
-import org.hsmak.data.custom.domain.RatingCount;
-import org.hsmak.data.custom.domain.Review;
-import org.hsmak.data.custom.domain.ReviewDetails;
+import org.hsmak.data.jpa.domain.City;
+import org.hsmak.data.jpa.domain.Hotel;
+import org.hsmak.data.jpa.domain.Rating;
+import org.hsmak.data.jpa.domain.RatingCount;
+import org.hsmak.data.jpa.domain.Review;
+import org.hsmak.data.jpa.domain.ReviewDetails;
 
 @Component("hotelService")
 @Transactional
