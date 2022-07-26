@@ -3,21 +3,28 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>org.hsmak</groupId>
+        <artifactId>spring-boot_2.x-pom</artifactId>
+        <version>1.0</version>
+    </parent>
+
+    <repositories>
+        <repository>
+            <id>github-repo</id>
+            <url>https://github.com/hsmak/maven-parent-poms/raw/main</url>
+        </repository>
+    </repositories>
+
     <groupId>org.hsmak</groupId>
     <artifactId>initializer-2.x</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <packaging>pom</packaging>
 
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.4.1</version>
-    </parent>
-
     <name>${project.artifactId}</name>
 
-    <!--<modules>
+    <modules>
         <module>bootable-2-concurrency</module>
         <module>bootable-2-rest</module>
         <module>bootable-2-data-jdbc</module>
@@ -25,9 +32,9 @@
         <module>bootable-2-customized</module>
         <module>bootable-2-mvc</module>
         <module>bootable-2-reactive</module>
-        <modle>bootable-2-jms-activemq</modle>
+        <module>bootable-2-jms-activemq</module>
         <module>bootable-2-kafka</module>
-    </modules>-->
+    </modules>
     <properties>
         <!--common-->
         <maven.compiler.source>11</maven.compiler.source>
