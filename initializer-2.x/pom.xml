@@ -35,23 +35,23 @@
         <module>bootable-2-jms-activemq</module>
         <module>bootable-2-kafka</module>
     </modules>
-    <properties>
-        <!--common-->
+    <!--<properties>
+        &lt;!&ndash;common&ndash;&gt;
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <java.version>11</java.version>
         <encoding>UTF-8</encoding>
 
-        <!--java-based-->
-        <!--<hibernate.version>5.4.20.Final</hibernate.version>-->
+        &lt;!&ndash;java-based&ndash;&gt;
+        &lt;!&ndash;<hibernate.version>5.4.20.Final</hibernate.version>&ndash;&gt;
 
-        <!--test-->
+        &lt;!&ndash;test&ndash;&gt;
         <junit4.version>4.13.1</junit4.version>
         <junit5.version>5.7.0</junit5.version>
         <surefire.version>3.0.0-M5</surefire.version>
-    </properties>
+    </properties>-->
 
-    <dependencies>
+    <!--<dependencies>
 
         <dependency>
             <groupId>junit</groupId>
@@ -82,7 +82,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-            <exclusions> <!--exclusion to allow surefire plugin to run-->
+            <exclusions> &lt;!&ndash;exclusion to allow surefire plugin to run&ndash;&gt;
                 <exclusion>
                     <artifactId>junit-jupiter</artifactId>
                     <groupId>org.junit.jupiter</groupId>
@@ -114,6 +114,6 @@
                 <version>${surefire.version}</version>
             </plugin>
         </plugins>
-    </build>
+    </build>-->
 
 </project>

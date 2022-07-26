@@ -4,54 +4,67 @@
 
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>org.hsmak</groupId>
+        <artifactId>spring-framework_5.x-pom</artifactId>
+        <version>1.0</version>
+    </parent>
+
+    <repositories>
+        <repository>
+            <id>github-repo</id>
+            <url>https://github.com/hsmak/maven-parent-poms/raw/main</url>
+        </repository>
+    </repositories>
+
     <groupId>org.hsmak</groupId>
     <artifactId>spring-framework-5</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <!--<modules>
+    <modules>
         <module>spring-core</module>
         <module>spring-mvc</module>
         <module>spring-rest</module>
         <module>spring-mix-in</module>
         <module>spring-ws</module>
         <module>spring-data-minibox</module>
-    </modules>-->
+    </modules>
 
     <name>${project.artifactId}</name>
 
     <packaging>pom</packaging>
 
-    <properties>
-        <!--java-related-->
+    <!--<properties>
+        &lt;!&ndash;java-related&ndash;&gt;
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <java.version>11</java.version>
         <encoding>UTF-8</encoding>
 
-        <!--spring-related-->
+        &lt;!&ndash;spring-related&ndash;&gt;
         <spring.version>5.3.2</spring.version>
         <spring.ws.version>3.0.10.RELEASE</spring.ws.version>
         <spring.integration.version></spring.integration.version>
         <spring-data-jpa.version>2.4.1</spring-data-jpa.version>
         <javax.annotation-api.version>1.3.2</javax.annotation-api.version>
 
-        <!--web-related-->
+        &lt;!&ndash;web-related&ndash;&gt;
         <jstl.version>1.2</jstl.version>
         <taglibs.version>1.1.2</taglibs.version>
         <wsdl4j.version>1.6.3</wsdl4j.version>
 
-        <!--db-related-->
+        &lt;!&ndash;db-related&ndash;&gt;
         <hibernate.version>5.4.25.Final</hibernate.version>
         <hsqldb.version>2.5.1</hsqldb.version>
         <h2.version>1.4.200</h2.version>
 
-        <!--format-related-->
+        &lt;!&ndash;format-related&ndash;&gt;
         <jackson.version>2.12.0</jackson.version>
 
-        <!--log-related-->
+        &lt;!&ndash;log-related&ndash;&gt;
         <log4j.version>2.14.0</log4j.version>
 
-        <!--test-related-->
+        &lt;!&ndash;test-related&ndash;&gt;
         <junit4.version>4.13.1</junit4.version>
         <junit5.version>5.6.3</junit5.version>
         <assertj.version>3.18.1</assertj.version>
@@ -62,7 +75,7 @@
 
     <dependencies>
 
-        <!--spring-related-->
+        &lt;!&ndash;spring-related&ndash;&gt;
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
@@ -85,15 +98,15 @@
             <scope>test</scope>
         </dependency>
 
-        <!--java-related annotations-->
-        <!--@PostConstruct @PreDestroy-->
+        &lt;!&ndash;java-related annotations&ndash;&gt;
+        &lt;!&ndash;@PostConstruct @PreDestroy&ndash;&gt;
         <dependency>
             <groupId>javax.annotation</groupId>
             <artifactId>javax.annotation-api</artifactId>
             <version>${javax.annotation-api.version}</version>
         </dependency>
 
-        <!--test-related-->
+        &lt;!&ndash;test-related&ndash;&gt;
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -112,7 +125,7 @@
             <version>${assertj.version}</version>
         </dependency>
 
-        <!-- logging -->
+        &lt;!&ndash; logging &ndash;&gt;
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
@@ -129,7 +142,7 @@
     <dependencyManagement>
 
         <dependencies>
-            <!-- spring-related -->
+            &lt;!&ndash; spring-related &ndash;&gt;
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-webmvc</artifactId>
@@ -172,7 +185,7 @@
             </dependency>
 
 
-            <!-- format-related -->
+            &lt;!&ndash; format-related &ndash;&gt;
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-core</artifactId>
@@ -188,20 +201,20 @@
                 <artifactId>jackson-annotations</artifactId>
                 <version>${jackson.version}</version>
             </dependency>
-            <!--xml-->
+            &lt;!&ndash;xml&ndash;&gt;
             <dependency>
                 <groupId>com.fasterxml.jackson.dataformat</groupId>
                 <artifactId>jackson-dataformat-xml</artifactId>
                 <version>${jackson.version}</version>
             </dependency>
-            <!--yaml-->
+            &lt;!&ndash;yaml&ndash;&gt;
             <dependency>
                 <groupId>com.fasterxml.jackson.dataformat</groupId>
                 <artifactId>jackson-dataformat-yaml</artifactId>
                 <version>${jackson.version}</version>
             </dependency>
 
-            <!-- web-related -->
+            &lt;!&ndash; web-related &ndash;&gt;
             <dependency>
                 <groupId>javax.servlet</groupId>
                 <artifactId>jstl</artifactId>
@@ -213,7 +226,7 @@
                 <version>${taglibs.version}</version>
             </dependency>
 
-            <!--db-related-->
+            &lt;!&ndash;db-related&ndash;&gt;
             <dependency>
                 <groupId>org.hibernate</groupId>
                 <artifactId>hibernate-core</artifactId>
@@ -258,6 +271,6 @@
             </plugin>
         </plugins>
 
-    </build>
+    </build>-->
 
 </project>
