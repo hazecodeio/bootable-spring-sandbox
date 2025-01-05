@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.hsmak</groupId>
+        <groupId>org.haze</groupId>
         <artifactId>spring-framework_5.x-pom</artifactId>
         <version>1.0</version>
         <relativePath/>
@@ -14,11 +14,10 @@
     <repositories>
         <repository>
             <id>github-repo</id>
-            <url>https://github.com/hsmak/maven-parent-poms/raw/main/_repo</url>
+            <url>https://github.com/hazecodeio/maven-parent-poms/raw/main/_repo</url>
         </repository>
     </repositories>
 
-    <groupId>org.hsmak</groupId>
     <artifactId>spring-framework-5</artifactId>
     <version>1.0-SNAPSHOT</version>
 
@@ -35,4 +34,39 @@
 
     <packaging>pom</packaging>
 
+
+    <dependencies>
+        <!-- log4j -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+        </dependency>
+        <!--<dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-to-slf4j</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>-->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j2-impl</artifactId>
+        </dependency>
+        <!--<dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-layout-template-json</artifactId>
+        </dependency>-->
+        <!-- For handling JSON conversion -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+
+    </dependencies>
 </project>
